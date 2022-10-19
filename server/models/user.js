@@ -1,6 +1,5 @@
 module.exports = (sequelize,DataTypes) => {
 
-
     //Postschema
         const LoginSchema = sequelize.define("user" , {  
             
