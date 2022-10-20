@@ -19,7 +19,7 @@ module.exports = (sequelize,DataTypes) => {
                 defaultValue:"EXEmail",
             },
     
-            username: {
+            userName: {
                 type: DataTypes.STRING,
                 allowNull: true,
                 defaultValue:"EXUserName",
