@@ -2,7 +2,7 @@ module.exports = (sequelize,DataTypes) => {
 
 
     //Postschema
-        const LoginSchema = sequelize.define("customer" , {   
+        const CustomerSchema = sequelize.define("customer" , {   
     
             cusId: {
                 type: DataTypes.INTEGER,
@@ -33,5 +33,5 @@ module.exports = (sequelize,DataTypes) => {
     
         });
     
-        return LoginSchema;
+        return CustomerSchema;
      };

@@ -10,6 +10,9 @@ app.use(cors());
 const InfoUserRouter = require("./routes/InfoUser");
 app.use("/InfoUser", InfoUserRouter);
 
+const InfoMenuRouter = require("./routes/InfoMenu");
+app.use("/InfoMenu", InfoMenuRouter);
+
 db.sequelize.sync().then(() => {
     app.listen(3001, () => {
         console.log("Server has started on port 3001");

@@ -15,5 +15,12 @@ router.post("/", async (req, res) => {
 
 });
 
+router.delete("/", async (req, res) => {
+    const userId = userId.req.body; 
+    await user.delete(userId);
+    res.json(userId);
+
+});
+
 
 module.exports = router

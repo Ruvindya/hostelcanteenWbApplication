@@ -1,7 +1,7 @@
 module.exports = (sequelize,DataTypes) => {
 
     //Postschema
-        const LoginSchema = sequelize.define("user" , {  
+        const UserSchema = sequelize.define("user" , {  
             
             userId: {
                 type: DataTypes.INTEGER,
@@ -32,5 +32,5 @@ module.exports = (sequelize,DataTypes) => {
             },
         });
     
-        return LoginSchema;
+        return UserSchema;
      };
