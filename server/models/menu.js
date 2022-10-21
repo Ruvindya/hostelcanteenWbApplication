@@ -10,7 +10,7 @@ module.exports = (sequelize,DataTypes) => {
                 defaultValue:"1",
             },
             BLD: {
-                type: DataTypes.CHAR,
+                type: DataTypes.STRING,
                 allowNull: false,
                 defaultValue:"B",
             },
@@ -25,7 +25,8 @@ module.exports = (sequelize,DataTypes) => {
                 defaultValue:"80.0",
             },
             isAvailabe: {
-                type: DataTypes.BOOLEAN,
+                
+                type: DataTypes.STRING,
                 allowNull: false,
                 defaultValue:true,
             },

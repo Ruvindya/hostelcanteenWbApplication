@@ -7,18 +7,20 @@ import Login from "./pages/Login";
 import DeleteUser from "./pages/DeleteUser";
 import AddMenuItem from "./pages/AddMenuItem";
 import UpdateMenu from "./pages/UpdateMenu";
+import GetMenuItem from "./pages/GetMenuItem";
 
 function App() {
 return (
  <div className='App'> 
 
   <Router>
-    <Link to = "/HomePage"> Go to home | </Link>
-    <Link to = "/NewUser"> New User | </Link>
-    <Link to = "/Loggin"> login |</Link>
-    <Link to = "/DeleteUser"> Delete User | </Link>
-    <Link to = "/AddMenuItem"> Add Menu Item</Link>
-    <Link to = "/UpdateMenu"> Update Menue</Link>
+    <Link to = "/HomePage"> Go to home  | </Link>
+    <Link to = "/NewUser"> New User   | </Link>
+    <Link to = "/Loggin"> login   |</Link>
+    <Link to = "/DeleteUser"> Delete User   | </Link>
+    <Link to = "/AddMenuItem"> Add Menu Item  |</Link>
+    <Link to = "/UpdateMenu"> Update Menue    |</Link>
+    <Link to = "/GetMenuItem"> Get Manu Item</Link>
     <Routes>
       <Route path="/HomePage" exact element={<Home/>} />
       <Route path="/NewUser" exact element={<NewUser/>} />
@@ -26,6 +28,7 @@ return (
       <Route path="/DeleteUser" exact element={<DeleteUser/>} />
       <Route path="/AddMenuItem" exact element={<AddMenuItem/>} />
       <Route path="/UpdateMenu" exact element={<UpdateMenu/>} />
+      <Route path="/GetMenuItem" exact element={<GetMenuItem/>} />
     </Routes>
   </Router>
  </div> 

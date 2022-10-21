@@ -3,66 +3,72 @@ import axios from "axios";
 import {useState } from "react";
 import "../App.css";
 
-
-function AddMenuItem() {
-    
-    const [BLD, setBLD] = useState('');
+function UpdateMenu() {
+    // const [menuID, setMenuID] = useState('');
+    const [BLD, setBLD] = useState('B');
     const [itemName, setItemName] = useState('');
     const [price, setPrice] = useState('');
     const [isAvailabe, setAvailability] = useState('');
+
+   
+
 
   const UpdateItem = async (e) => {
     e.preventDefault();
   
 
     try {
-        await axios.put('http://localhost:3001/InfoMenu', {  
-            BLD:BLD,
-            itemName: itemName,
-            price:price,
-            isAvailabe: isAvailabe,
+        await axios.post('http://localhost:3001/InfoMenu//UpdateItem', {  
+          //menuID:menuID,
+          BLD: BLD,
+          itemName:itemName,
+          price: price,
+          isAvailabe:isAvailabe
         })
         
     } catch (error) {
    console.log(error);
-    }   
+    }
+     
 }
+  
+
   return (
    
+
   <form  onSubmit={UpdateItem} >
     <div className="App">
-            <div className='getGetails '>
-                            <select name="platform" class="custom-select">
+      <div className="Update" >
 
-                            <option value="">Select Subject</option>
-                            <option  value="001">Mathematics</option>
-                            <option value="002">Science</option>
-                            <option value="003">English</option>
-                            <option value="004">Sinhala</option>
-                            <option value="005">Tamil</option>  
-                            
-                            </select>
+        <h1>Update Menu Item</h1>
 
-            </div>
+        {/* <label>Menu ID</label>
+          <input type="menuID" placeholder=" " name="menuID" required  
+          value={menuID}  onChange={(e) => setMenuID(e.target.value)} 
+          /> */}
 
-            <div className="SearchItemName" >
+        <label>BLD</label>
+          <input type="BLD" placeholder=" " name="BLD" required
+          value={BLD} onChange={(e) => setBLD(e.target.value)}
+          />
 
-                <h1>Search by meal</h1>
-                <h3>B-Breakfast L-Lunch D-Dinner</h3>
+        <label>Item Name</label>
+          <input type="itemName" placeholder=" " name="itemName" required
+          value={itemName} onChange={(e) => setItemName(e.target.value)}
+          />
 
-                <label>Meal Name</label>
-                <input type="BLD" placeholder=" " name="BLD" required  
-                value={BLD}  onChange={(e) => setBLD(e.target.value)} 
-                />
-                <button   type="search" >Search</button>
-            </div>
+        <label>Price</label>
+          <input type="price" placeholder="" name="price" required
+          value={price} onChange={(e) => setPrice(e.target.value)}
+          />
 
-            <div className='getGetails '>
-                    <select name="platform" class="custom-select">
-            
-                    </select>
+        <label>Availability</label>
+          <input type="isAvailabe" placeholder="" name="isAvailabe" required
+          value={isAvailabe} onChange={(e) => setAvailability(e.target.value)}
+          />
 
-            </div>
+        <button   type="submit" >UpdateItem</button>
+      </div>
 
     </div> 
     </form>
@@ -70,4 +76,4 @@ function AddMenuItem() {
   );
 }
 
-export default AddMenuItem;
+export default UpdateMenu;
