@@ -1,12 +1,13 @@
 import React from 'react';
 import axios from "axios";
 import {useEffect, useState} from "react";
+//import { useNavigate} from "react-router-dom";
 import '../App.css';
 
 function Home(){
 
     const [listOfUsers, setListOfUsers] = useState([]);
-
+    //let nevigate = useNavigate()
   useEffect(() => {
     axios.get("http://localhost:3001/InfoUser").then((response) => {
       console.log(response.data);
@@ -18,7 +19,7 @@ function Home(){
   return (
     <div>
         <h1>User list</h1>
-           <div className='user'>
+           <div className='user' >
 
             <table>
                     <tr>
