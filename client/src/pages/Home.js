@@ -6,22 +6,22 @@ import '../App.css';
 
 function Home(){
 
-    const [listOfUsers, setListOfUsers] = useState([]);
-    //let nevigate = useNavigate()
-  useEffect(() => {
-    axios.get("http://localhost:3001/InfoUser").then((response) => {
-      console.log(response.data);
-      setListOfUsers(response.data);
+  //   const [listOfUsers, setListOfUsers] = useState([]);
+  //   //let nevigate = useNavigate()
+  // useEffect(() => {
+  //   axios.get("http://localhost:3001/InfoUser").then((response) => {
+  //     console.log(response.data);
+  //     setListOfUsers(response.data);
 
-    });
-  }, []);
+  //   });
+  // }, []);
 
   return (
     <div>
         <h1>User list</h1>
            <div className='user' >
 
-            <table>
+            {/* <table>
                     <tr>
                         <td className='columnName'><h3>User ID</h3></td>
                         <td className='columnName'><h3>Name</h3></td>
@@ -38,7 +38,7 @@ function Home(){
                     </tr>
 
                     ))}
-            </table>
+            </table> */}
 </div> 
     </div>
 

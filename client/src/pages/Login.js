@@ -47,7 +47,7 @@ function Login() {
   return (
    
     
-  <form   >
+  <form  className="form" >
     <div className="App">
       <div className="login" >
         <h1>Login</h1>

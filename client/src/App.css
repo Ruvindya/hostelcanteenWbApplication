@@ -181,3 +181,55 @@ login {
 
 
 
+
+
+
+
+
+/* Navbar */
+
+
+
+.navbar-nav >li>a.active , navbar-nav > li> a:focus {
+  color: #d2f02c;
+  border-top: 0.1875rem solid #d2f02c;
+}
+
+.navbar-brand {
+  color: #301e1e;
+  font-size: 1.2em;
+  font-family: 'Comfortaa', cursive;
+  font-weight: bold;
+  margin-left: 20px;
+  
+}
+
+.navbar-nav > li > a {
+  color: rgb(0, 0, 0);
+  font-size: 1.2em;
+  font-family: 'Comfortaa', cursive;
+  margin-right: 20px;
+
+}
+
+.nav-item {
+
+}
+
+
+.form {
+  
+}
+
+.form input {
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  border-radius: 5px;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+  font-family: 'Comfortaa', cursive;
+}

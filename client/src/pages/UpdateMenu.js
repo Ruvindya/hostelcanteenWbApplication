@@ -36,7 +36,7 @@ function UpdateMenu() {
   return (
    
 
-  <form  onSubmit={UpdateItem} >
+  <form  className="form" onSubmit={UpdateItem} >
     <div className="App">
       <div className="Update" >
 

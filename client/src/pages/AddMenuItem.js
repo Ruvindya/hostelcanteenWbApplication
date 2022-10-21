@@ -29,7 +29,7 @@ function AddMenuItem() {
 }
   return (
    
-  <form  onSubmit={AddItem} >
+  <form  className="form" onSubmit={AddItem} >
     <div className="App">
       <div className="AddFoodItem" >
 

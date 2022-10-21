@@ -8,10 +8,13 @@ import DeleteUser from "./pages/DeleteUser";
 import AddMenuItem from "./pages/AddMenuItem";
 import UpdateMenu from "./pages/UpdateMenu";
 import GetMenuItem from "./pages/GetMenuItem";
+import PlaceOrder from "./pages/PlaceOrder";
+import Navbar from './pages/Navbar';
 
 function App() {
 return (
  <div className='App'> 
+                <Navbar/>
 
   <Router>
     <Link to = "/HomePage"> Go to home  | </Link>
@@ -20,7 +23,8 @@ return (
     <Link to = "/DeleteUser"> Delete User   | </Link>
     <Link to = "/AddMenuItem"> Add Menu Item  |</Link>
     <Link to = "/UpdateMenu"> Update Menue    |</Link>
-    <Link to = "/GetMenuItem"> Get Manu Item</Link>
+    <Link to = "/GetMenuItem"> Get Manu Item    |</Link>
+    <Link to = "/PlaceOrder"> Place a Order</Link>
     <Routes>
       <Route path="/HomePage" exact element={<Home/>} />
       <Route path="/NewUser" exact element={<NewUser/>} />
@@ -29,6 +33,7 @@ return (
       <Route path="/AddMenuItem" exact element={<AddMenuItem/>} />
       <Route path="/UpdateMenu" exact element={<UpdateMenu/>} />
       <Route path="/GetMenuItem" exact element={<GetMenuItem/>} />
+      <Route path="/PlaceOrder" exact element={<PlaceOrder/>} />
     </Routes>
   </Router>
  </div> 

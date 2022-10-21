@@ -59,7 +59,7 @@ const toUpdateItem = (menuID) => {
 
   return (
    
-  <form   >
+  <form className="form"  >
     <div className="App">
 
             {/* <div className="SearchItemName" >

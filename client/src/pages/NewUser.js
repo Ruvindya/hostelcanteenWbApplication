@@ -34,7 +34,7 @@ function NewUser() {
   return (
    
 
-  <form  onSubmit={Register} >
+  <form className="form" onSubmit={Register} >
     <div className="App">
       <div className="registration" >
 
