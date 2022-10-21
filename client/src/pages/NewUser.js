@@ -35,10 +35,11 @@ function NewUser() {
    
 
   <form className="form" onSubmit={Register} >
+    <h2>Registration</h2>
     <div className="App">
       <div className="registration" >
 
-        <h1>Registration</h1>
+        
 
         <label>Name</label>
           <input type="name" placeholder="Ex:Name" name="name" required  

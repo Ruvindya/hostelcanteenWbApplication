@@ -12,19 +12,25 @@ import PlaceOrder from "./pages/PlaceOrder";
 import Navbar from './pages/Navbar';
 
 function App() {
+ 
 return (
+
+  
  <div className='App'> 
+
+
                 <Navbar/>
 
   <Router>
-    <Link to = "/HomePage"> Go to home  | </Link>
+    {/* <Link to = "/HomePage"> Go to home  | </Link>
     <Link to = "/NewUser"> New User   | </Link>
     <Link to = "/Loggin"> login   |</Link>
     <Link to = "/DeleteUser"> Delete User   | </Link>
     <Link to = "/AddMenuItem"> Add Menu Item  |</Link>
     <Link to = "/UpdateMenu"> Update Menue    |</Link>
     <Link to = "/GetMenuItem"> Get Manu Item    |</Link>
-    <Link to = "/PlaceOrder"> Place a Order</Link>
+    <Link to = "/PlaceOrder"> Place a Order</Link> */}
+    
     <Routes>
       <Route path="/HomePage" exact element={<Home/>} />
       <Route path="/NewUser" exact element={<NewUser/>} />

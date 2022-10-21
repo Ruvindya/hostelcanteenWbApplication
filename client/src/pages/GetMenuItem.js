@@ -59,7 +59,7 @@ const toUpdateItem = (menuID) => {
 
   return (
    
-  <form className="form"  >
+  <form   >
     <div className="App">
 
             {/* <div className="SearchItemName" >
@@ -79,7 +79,7 @@ const toUpdateItem = (menuID) => {
                 <button type="submit" onSubmit={()=>GetItemDet}> Search </button>
             </div> */}
 
-            <div className='user' >
+           
 
                         <table>
                                 <tr>
@@ -104,7 +104,7 @@ const toUpdateItem = (menuID) => {
 
                                 ))}
                       </table>
-              </div> 
+              
 
     </div> 
     </form>
