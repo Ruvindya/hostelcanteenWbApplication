@@ -27,7 +27,10 @@ function NewUser() {
     } catch (error) {
    console.log(error);
     }
-     
+     [name, setName] = useState('');
+     [email, setEmail] = useState('');
+     [userName, setUserName] = useState('');
+     [password, setPassword] = useState('');
 }
   
 

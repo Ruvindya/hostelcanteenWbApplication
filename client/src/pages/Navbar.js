@@ -1,11 +1,13 @@
-import React from 'react'
+import React from "react"
 import '../App.css';
+import logo from "../logo2.png"
 
 
 const Navbar = () => {
   return (
     <div><nav className="navbar navbar-expand-lg navbar-light bg-dark">
       <div className='container'>
+        <a className="navbar-brand" href="#"><img className="logo" src={logo} alt="logo..."></img></a>
         <h4>HostelCanteen</h4>
     
 

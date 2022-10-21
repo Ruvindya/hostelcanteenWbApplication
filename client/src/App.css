@@ -3,10 +3,15 @@
   background-color: rgb(173, 173, 165);
   
 }
-
+.logo{
+  width: 10rem;
+}
+.form.logoHome{
+  width: 50rem;
+}
 body{
-  /* background-image:  url("./logo1.png");
-  background-repeat: no-repeat; */
+   background-image:  url("./logo2.png");
+  background-repeat: no-repeat; 
   margin-block-end: 50px;
   
 }
@@ -40,6 +45,7 @@ footer{
   z-index: 1;
   background: #4b4a49;
   border-radius: 10px;
+  border-bottom: #a3a0a0;
   max-width: 500px;
   margin-top: 60px;
   margin-bottom: 300px;
@@ -96,15 +102,23 @@ footer{
   font-size: 14px;
   font-family: 'Rockwell Extra Bold', cursive;
 } 
+.form h6{
+  color: #df0000;
+}
+.form h5{
+  color: #020202;
+  text-transform: uppercase;
+}
 .form h1 {
   outline: 0;
   background: null;
-  color: #301e1e;
+  text-transform: uppercase;
+  color: #1f1f1f;
   width: 100%;
   border-top: 15px;
   margin-top: 15px;
   margin: 0 0 15px;
-  font-size: 30px;
+  font-size: 60px;
   font-family: 'New Century Schoolbook', TeX Gyre Schola, serif, cursive;
 } 
 .form table{

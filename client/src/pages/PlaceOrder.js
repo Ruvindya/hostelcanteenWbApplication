@@ -72,7 +72,7 @@ const addItem = async (e) => {
 
       <div className="customerDetails" >
 
-        <h6>Fill customer details</h6>
+        <h5>Fill customer details</h5>
 
         <label>Customer Name</label>
           <input type="name" placeholder="Ex:Name" name="name" required  
@@ -99,7 +99,7 @@ const addItem = async (e) => {
 
             <div className="orderDetails" >
 
-                <h6>Fill order details</h6>
+                <h5>Fill order details</h5>
 
                             <label>oderNo</label>
                             <input type="oderNo" placeholder="" name="oderNo" required  

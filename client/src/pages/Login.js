@@ -64,7 +64,7 @@ function Login() {
         <button   type="submit" onSubmit={Login}  >Login</button>
       </div>
 
-       <h1>{loginStatus}</h1>
+       <h6>{loginStatus}</h6>
     </div>  
     </form>
   
