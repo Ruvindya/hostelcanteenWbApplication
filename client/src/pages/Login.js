@@ -1,12 +1,13 @@
 import axios from "axios";
 import React ,{useState } from 'react';
+import logo from "../logo2.png"
 
 import "../App.css";
 
 function Login() {
  
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState(" ");
+  const [password, setPassword] = useState(" ");
   const [loginStatus,setLoginStatus] = useState('ENTER YOUR CREDENTIALS');
 
 
@@ -49,6 +50,7 @@ function Login() {
     
   <form  className="form" >
     <div className="App">
+
       <div className="login" >
         <h1>Login</h1>
 
@@ -65,7 +67,11 @@ function Login() {
       </div>
 
        <h6>{loginStatus}</h6>
-    </div>  
+
+      
+    </div> 
+    
+
     </form>
   
   );

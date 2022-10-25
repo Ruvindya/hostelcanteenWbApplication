@@ -2,21 +2,25 @@ const express = require("express");
 const router = express.Router();
 const {menu} = require('../models');
 
+//working
 router.get("/getItem", async (req, res) => {
     //res.send("hello world");
     const listOfMenuItems = await menu.findAll();
     res.json(listOfMenuItems);
 });
 
-router.get("/getItem/:BLD", async (req, res) => {
+//working
+router.get("/:BLD", async (req, res) => {
   //res.send("hello world");
-  const listOfMenuItems = await menu.findAll(req.body, {
+  const BLD = req.params.BLD;
+  const listOfMenuItems = await menu.findAll( {
     where: {
-      BLD: req.params.BLD
+      BLD:BLD
     }
   });
   res.json(listOfMenuItems);
 });
+
 
 router.post("/postItem", async (req, res) => {
     const foodItems = req.body; 
@@ -24,19 +28,50 @@ router.post("/postItem", async (req, res) => {
     res.json(foodItems);
 });
 
+exports.update = (req, res) => {
+  const menuID = req.params.id;
+
+  router.update(req.body, {
+    where: { menuID: menuID }
+  })
+    .then(num => {
+      if (num == 1) {
+        res.send({
+          message: "Tutorial was updated successfully."
+        });
+      } else {
+        res.send({
+          message: `Cannot update Tutorial with id=${menuID}. Maybe Tutorial was not found or req.body is empty!`
+        });
+      }
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: "Error updating Tutorial with id=" + menuID
+      });
+    });
+};
+
+
+
+
+
 // router.post("/UpdateItem", async (req, res) => {
     
     
 // });
 
-router.put("/UpdateItem/:menuID", async (req, res, next)=> {
-  const foodItems = req.body; 
-    await menu.create(foodItems, {
-      where: {
-        menuID: req.params.menuID
-      }
-    }
-      );
+// router.put("/UpdateItem/:menuID", async (req, res, next)=> {
+//   const foodItems = req.body; 
+//   console.log("OKKKKKK")
+//     await menu.create(foodItems, {
+     
+//       where: {
+        
+//         menuID: req.params.menuID
+//       }
+//     }
+//       );
 
     // menu.update(
     //   {itemName: req.body.itemName,},
@@ -46,7 +81,7 @@ router.put("/UpdateItem/:menuID", async (req, res, next)=> {
     //   res.json(rowsUpdated)
     // })
     // .catch(next)
-   })
+   //})
 
 // router.delete("/", async (req, res) => {
 //     const menuID = menuID.req.body; 

@@ -7,7 +7,8 @@ module.exports = (sequelize,DataTypes) => {
             cusId: {
                 type: DataTypes.INTEGER,
                 allowNull: false,
-                defaultValue:"123",
+                primaryKey: true,
+                autoIncrement: true,
             },
             name: {
                 type: DataTypes.STRING,
@@ -22,16 +23,23 @@ module.exports = (sequelize,DataTypes) => {
             roomNo: {
                 type: DataTypes.INTEGER,
                 allowNull: false,
-                defaultValue:"RoomNo",
+                defaultValue:012,
             },
             phoneNo: {
                 type: DataTypes.INTEGER,
                 allowNull: false,
-                defaultValue:"PhoneNo",
+                defaultValue:123456,
             },
 
     
+        },{
+            freezeTableName: true,
+            timestamps: false,
+            
+            
         });
-    
-        return CustomerSchema;
+
+        //  order.belongsTo(customer);
+
+         return CustomerSchema;
      };

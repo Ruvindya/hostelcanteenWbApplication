@@ -7,6 +7,7 @@ module.exports = (sequelize,DataTypes) => {
             status: {
                 type: DataTypes.STRING,
                 allowNull: false,
+                primaryKey: true,
                 defaultValue:"pending",
             },
             BLD: {
@@ -22,6 +23,11 @@ module.exports = (sequelize,DataTypes) => {
            
 
     
+        },{
+            freezeTableName: true,
+            timestamps: false,
+            
+            
         });
     
         return StatusSchema;

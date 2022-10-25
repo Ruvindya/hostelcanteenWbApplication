@@ -10,15 +10,27 @@
   width: 50rem;
 }
 body{
-   background-image:  url("./logo2.png");
-  background-repeat: no-repeat; 
+   /* background-image:  url("./logo2.png");
+  background-repeat: no-repeat;  */
   margin-block-end: 50px;
+  background-color: #929485;
   
 }
 footer{
   margin-bottom: 100px;
   background-color: #a3a0a0;
 }
+
+/* .header-wraper {
+  background: url(./logo2.png) no-repeat center center;
+  background-size: cover;
+  margin-left: 300px;
+  height: 180vh;
+  width: 100%;
+  position: relative;
+  align-content: center;
+  
+} */
 
 .App-header {
   background-color: #282c34;

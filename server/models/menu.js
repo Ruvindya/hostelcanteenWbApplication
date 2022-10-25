@@ -7,7 +7,8 @@ module.exports = (sequelize,DataTypes) => {
             menuID: {
                 type: DataTypes.INTEGER,
                 allowNull: false,
-                defaultValue:"1",
+                primaryKey: true,
+                autoIncrement: true,
             },
             BLD: {
                 type: DataTypes.STRING,
@@ -22,7 +23,7 @@ module.exports = (sequelize,DataTypes) => {
             price: {
                 type: DataTypes.DOUBLE,
                 allowNull: false,
-                defaultValue:"80.0",
+                defaultValue:80.0,
             },
             isAvailabe: {
                 
@@ -32,7 +33,14 @@ module.exports = (sequelize,DataTypes) => {
             },
 
     
+        },{
+            freezeTableName: true,
+            timestamps: false,
+            
+            
         });
     
+        // OderDetails.belongsTo(menu);
+
         return MenuSchema;
      };

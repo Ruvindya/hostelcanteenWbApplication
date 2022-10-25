@@ -3,11 +3,12 @@ module.exports = (sequelize,DataTypes) => {
     //Postschema
         const UserSchema = sequelize.define("user" , {  
             
-            userId: {
+             userId: {
                 type: DataTypes.INTEGER,
                 allowNull: true,
-                defaultValue:"123",
-            },
+                primaryKey: true,
+                autoIncrement: true,
+             },
             name: {
                 type: DataTypes.STRING,
                 allowNull: true,
@@ -30,7 +31,13 @@ module.exports = (sequelize,DataTypes) => {
                 allowNull: true,
                 defaultValue:"******",
             },
+        },{
+            freezeTableName: true,
+            timestamps: false,
+            
+            
         });
+       
     
         return UserSchema;
      };

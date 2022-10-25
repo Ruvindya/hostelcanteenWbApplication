@@ -7,18 +7,30 @@ module.exports = (sequelize,DataTypes) => {
             oderNo: {
                 type: DataTypes.INTEGER,
                 allowNull: false,
+                
+                references: {
+                    model: 'order', // 'fathers' refers to table name
+                    key: 'oderNo', // 'id' refers to column name in fathers table
+                 },
+                //forign key
                 defaultValue:"123",
             },
-            itemNo: {
+            itemId: {
                 type: DataTypes.INTEGER,
                 allowNull: false,
-                defaultValue:"123",
+                primaryKey: true,
+                
+                autoIncrement: true,
             },
+
             menuID: {
                 type: DataTypes.INTEGER,
-                allowNull: false,
-                defaultValue:"123",
-            },
+                references: {
+                   model: 'menu', // 'fathers' refers to table name
+                   key: 'menuID', // 'id' refers to column name in fathers table
+                }},
+
+            
             qty: {
                 type: DataTypes.INTEGER,
                 allowNull: false,
@@ -31,7 +43,24 @@ module.exports = (sequelize,DataTypes) => {
             },
 
     
+        },{
+            freezeTableName: true,
+            timestamps: false,
+
         });
+        
+
+        // menu.hasMany(OderDetails, {
+        //     foreignKey: 'menuID'
+        //   });
+
+
+        // OderDetailsSchema.associate = (models) => {
+        //     OderDetailsSchema.hasMany(models.OderSchema, {
+        //         onDelete: "cascade,"
+        //     })
+        // }
+        
     
         return OderDetailsSchema;
      };

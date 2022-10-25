@@ -6,9 +6,9 @@ import "../App.css";
 function PlaceOrder() {
     //customer table attributes
    // const [cusId, setCusID] = useState(); //order
-    const [name, setName] = useState('');//order
-    const [block, setBlock] = useState('');
-    const [roomNo, setRoomNo] = useState('');
+    const [name, setName] = useState("");//order
+    const [block, setBlock] = useState("");
+    const [roomNo, setRoomNo] = useState("");
     const [phoneNo, setPhoneNo] = useState();
 
     //orderDetails table attributes
@@ -80,7 +80,7 @@ const addItem = async (e) => {
           />
 
         <label>block</label>
-          <input type="block" placeholder="" name="block" required
+          <input type="block" placeholder="Ex:A" name="block" required
           value={block} onChange={(e) => setBlock(e.target.value)}
           />
 
@@ -90,7 +90,7 @@ const addItem = async (e) => {
           />
 
         <label>phoneNo</label>
-          <input type="phoneNo" placeholder="" name="phoneNo" required
+          <input type="phoneNo" placeholder="EX:0771234567" name="phoneNo" required
           value={phoneNo} onChange={(e) => setPhoneNo(e.target.value)}
           />
 
@@ -102,22 +102,22 @@ const addItem = async (e) => {
                 <h5>Fill order details</h5>
 
                             <label>oderNo</label>
-                            <input type="oderNo" placeholder="" name="oderNo" required  
+                            <input type="oderNo" placeholder="Ex:1" name="oderNo" required  
                             value={oderNo}  onChange={(e) => setOderNo(e.target.value)} 
                             />
 
                             <label>itemNo</label>
-                            <input type="itemNo" placeholder="" name="itemNo" required
+                            <input type="itemNo" placeholder="Ex:001" name="itemNo" required
                             value={itemNo} onChange={(e) => setItemNo(e.target.value)}
                             />
 
                             <label>qty</label>
-                            <input type="qty" placeholder="" name="qty" required
+                            <input type="qty" placeholder="Ex:1" name="qty" required
                             value={qty} onChange={(e) => setQty(e.target.value)}
                             />
 
                             <label>totPrice</label>
-                            <input type="totPrice" placeholder="" name="totPrice" required
+                            <input type="totPrice" placeholder="EX:0" name="totPrice" required
                             value={totPrice} onChange={(e) => setTotPrice(e.target.value)}
                             />
 

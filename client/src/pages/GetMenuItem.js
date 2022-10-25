@@ -61,7 +61,7 @@ const toUpdateItem = (menuID) => {
    
   <form   >
     <div className="App">
-
+<h2>Update Menue Item</h2>
             {/* <div className="SearchItemName" >
 
                 <h1>Search by meal</h1>
@@ -83,12 +83,12 @@ const toUpdateItem = (menuID) => {
 
                         <table>
                                 <tr>
-                                    <td className='columnName'><h3>Menu Id</h3></td>
-                                    <td className='columnName'><h3>BLD</h3></td>
-                                    <td className='columnName'><h3>item Name</h3></td>
-                                    <td className='columnName'><h3>Price</h3></td>
-                                    <td className='columnName'> <h3>isAvailable</h3></td>.
-                                    <td className='columnName'> <h3>Update</h3></td>
+                                    <td className='columnName'><h3>Menu Id   |   </h3></td>
+                                    <td className='columnName'><h3>BLD   |  </h3></td>
+                                    <td className='columnName'><h3>item Name   |   </h3></td>
+                                    <td className='columnName'><h3>Price   |   </h3></td>
+                                    <td className='columnName'> <h3>isAvailable   |  </h3></td>.
+                                    <td className='columnName'> <h3>Update   |   </h3></td>
                                 </tr>
 
                                 {listOfItems.map((value,key)=>(

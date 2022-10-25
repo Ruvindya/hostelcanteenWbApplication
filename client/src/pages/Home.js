@@ -15,7 +15,7 @@ function Home(){
         
         <h1 className='hungry'>HUNGRY!?</h1>
         <h4 className='Lets Dine In..'>Lets Dine In..</h4>
-        <img className="logoHome" src={logo} alt="logo..."></img>
+         <img className="logoHome" src={logo} alt="logo..."></img> 
            <div className='user' >
 
           
