@@ -1,0 +1,108 @@
+.PlaceOrderForm {
+    position:relative;
+     /* z-index: 1;   */
+    background: #a3a0a0;
+    border-radius: 10px;
+    border-bottom: #d41919;
+    /* max-width: 50%; */
+    /* margin-top: 60px; */
+    /* margin-bottom: 300px; */
+    /* margin-left: 100%;
+    margin-bottom: 10px; */
+    /* padding: 50%; */
+    text-align:center;
+  }
+  
+  .CustomerDetails{
+    max-width: 50%;
+    margin-right: 0px;
+  }
+ 
+
+  .orderDetails{
+    max-width: 50%;
+    margin-top: 50px;
+  }
+
+
+  .CustomerDetails input{
+    outline: 0;
+    background: #e4e3e1;
+    width: 30%;
+    border: 1;
+    
+    margin: 10px 10px 10px 15px;
+    
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 20px;
+    font-family: 'Rockwell Extra Bold', cursive;
+    text-align:left;
+  }
+  .orderDetails input{
+    outline: 0;
+    background: #e4e3e1;
+    width: 30%;
+    border: 1;
+    
+    margin: 10px 10px 10px 15px;
+    
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 20px;
+    font-family: 'Rockwell Extra Bold', cursive;
+    text-align: left;
+  }
+  .CustomerDetails label{
+    font-size: 25px;
+    width: 15%;
+    font-family: 'Rockwell Extra Bold', cursive;
+    text-align:left;
+  }
+  
+  .orderDetails label{
+    font-size: 25px;
+    width: 15%;
+    font-family: 'Rockwell Extra Bold', cursive;
+    text-align:left;
+    margin-left: 0px;
+    padding-left: 0px;
+  }
+  .orderDetails button{
+    font-family: 'Rockwell Extra Bold', cursive;
+    text-transform: uppercase;
+    outline: 0;
+    margin-bottom: 10px;
+    margin-left: 100px;
+    background: #3b3b38;
+    width: 50%;
+    border: 0;
+    border-radius: 5px;
+    padding: 15px;
+    
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+  
+  }
+  .seeMenu button{
+    font-family: 'Rockwell Extra Bold', cursive;
+    text-transform: uppercase;
+    outline: 0;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    background: #3b3b38;
+    width: 10%;
+    border: 0;
+    border-radius: 5px;
+    padding: 15px;
+    
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+    
+  }

@@ -9,28 +9,27 @@ function NewUser() {
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
 
-   
-
 
   const Register = async (e) => {
     e.preventDefault();
   
 
     try {
-        await axios.post('http://localhost:3001/InfoUser', {  
+        await axios.post('http://localhost:3001/InfoUser/postUser', {  
             name:name,
           email: email,
           userName:userName,
           password: password,
         })
+      
         
     } catch (error) {
    console.log(error);
     }
-     [name, setName] = useState('');
-     [email, setEmail] = useState('');
-     [userName, setUserName] = useState('');
-     [password, setPassword] = useState('');
+     [name, setName] = useState(" ");
+     [email, setEmail] = useState(" ");
+     [userName, setUserName] = useState(" ");
+     [password, setPassword] = useState(" ");
 }
   
 
@@ -64,7 +63,7 @@ function NewUser() {
           value={password} onChange={(e) => setPassword(e.target.value)}
           />
 
-        <button   type="submit" >Register</button>
+        <button   type="submit" onSubmit={Register}>ADD User</button>
       </div>
 
     </div> 

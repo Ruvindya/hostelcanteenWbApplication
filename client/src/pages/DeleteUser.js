@@ -8,7 +8,7 @@ function DeleteUser() {
     const [listOfUsers, setListOfUsers] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:3001/InfoUser").then((response) => {
+    axios.get("http://localhost:3001/InfoUser/getUser").then((response) => {
       console.log(response.data);
       setListOfUsers(response.data);
 
