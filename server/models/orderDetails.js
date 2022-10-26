@@ -2,9 +2,9 @@ module.exports = (sequelize,DataTypes) => {
 
 
     //Postschema
-        const OderDetailsSchema = sequelize.define("OderDetails" , {   
+        const oderDetailsSchema = sequelize.define("oderDetails" , {   
     
-            oderNo: {
+            orderId: {
                 type: DataTypes.INTEGER,
                 allowNull: false,
                 
@@ -12,10 +12,10 @@ module.exports = (sequelize,DataTypes) => {
                     model: 'order', // 'fathers' refers to table name
                     key: 'oderNo', // 'id' refers to column name in fathers table
                  },
-                //forign key
+                //forign keyk
                 defaultValue:"123",
             },
-            itemId: {
+            oderDetailsId: {
                 type: DataTypes.INTEGER,
                 allowNull: false,
                 primaryKey: true,
@@ -62,5 +62,5 @@ module.exports = (sequelize,DataTypes) => {
         // }
         
     
-        return OderDetailsSchema;
+        return oderDetailsSchema;
      };

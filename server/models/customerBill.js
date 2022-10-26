@@ -4,10 +4,10 @@ const orderDetails = require("./orderDetails");
 module.exports = (sequelize,DataTypes) => {
 
 
-    //Postschemadf
-        const OderSchema = sequelize.define("Order" , {   
-    //
-            oderNo: {
+   
+        const customerbillSchema = sequelize.define("customerbill" , {   
+    
+            oderId: {
                 type: DataTypes.INTEGER,
                 allowNull: false,
                 primaryKey: true,
@@ -19,19 +19,6 @@ module.exports = (sequelize,DataTypes) => {
                 allowNull: false,
                 defaultValue:"B",
             },
-
-            // cusId: {
-            //     type: DataTypes.INTEGER,
-            //     references: {
-            //        model: 'customer', // 'fathers' refers to table name
-            //        key: 'cusId', // 'id' refers to column name in fathers table
-            //     }},
-            // cusId: {
-            //     type: DataTypes.INTEGER,
-            //     allowNull: false,
-            //     //foreign key
-            //     defaultValue:"123",
-            // },
            
             totAmount: {
                 type: DataTypes.DOUBLE,
@@ -43,8 +30,7 @@ module.exports = (sequelize,DataTypes) => {
         },{
             freezeTableName: true,
             timestamps: false,
-            
-            
+  
         });
 
 
@@ -61,5 +47,5 @@ module.exports = (sequelize,DataTypes) => {
         // };
         // Oder.belongsTo(customer);
 
-        return OderSchema;
+        return customerbillSchema;
      };
