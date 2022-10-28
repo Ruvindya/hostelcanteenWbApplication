@@ -20,11 +20,13 @@ router.post("/postUser", async (req, res) => {
 
 
 
-router.delete("/", async (req, res) => {
-    const userId = userId.req.body; 
-    await user.delete(userId);
-    res.json(userId);
-
+router.delete("/delete/:userId", async (req, res) => {
+    const userId = req.params.userId; 
+    await user.destroy({
+        where: { userId: userId },
+      });
+    // await user.delete(userId);
+    // res.json(userId);
 });
 
 
