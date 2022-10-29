@@ -1,14 +1,17 @@
 import React from 'react';
 import axios from "axios";
-import {useState } from "react";
+
+import {useEffect, useState} from "react";
 import "../PlaceOrder.css";
 
 function PlaceOrder() {
 
   const [listOfItems, setListOfTtems] = useState([]);
+  const [listOfcustomer, setListOfCustomer] = useState([]);
 
     //customer table attributess
    
+    const [cusId, setCusId] = useState();
     const [cusName, setCusName] = useState("");//order
     const [block, setBlock] = useState("");
     const [roomNo, setRoomNo] = useState();
@@ -21,7 +24,7 @@ function PlaceOrder() {
  
     
 
-    const [BLD, setBLD] = useState("B");
+    
     const [itemName, setitemName] = useState();
     const [price, setprice] = useState();
     const [isAvailabe, setisAvailabe] = useState(); 
@@ -70,22 +73,43 @@ function PlaceOrder() {
 //   }  
 // }
   
+// useEffect(() => {
+//   axios.get(`http://localhost:3001/InfoCustomer/getcustomer/${cusId}`).then((response) => {
+//     console.log(response.data);
+//     setListOfCustomer(response.data);
+//   });
+// }, []);
+
 
 const addItem = async (e) => {
     e.preventDefault();
   
-
+    console.log("OKkk");
     try {
-      await axios.post('http://localhost:3001/InfoCustomer/postcustomer', {  
-
-        cusName:cusName,
+      await axios.post("http://localhost:3001/InfoCustomer/postcustomer", {  
+        
+            cusName:cusName,
             block: block,
             roomNo:roomNo,
             phoneNo:phoneNo,
 
         })
-        await axios.post('http://localhost:3001/InfoOrderDetail/postOderDetails', {  
-            //orderId:itemId,
+
+
+
+        //not completed.. error coming after added this part
+        axios.get(`http://localhost:3001/InfoCustomer/getcustomer/${cusId}`).then((response) => {
+          
+        console.log(response.data);
+        setListOfCustomer(response.data.cusId)
+        // setListOfCustomer(response.data);
+         });
+       
+      
+
+
+        await axios.post("http://localhost:3001/InfoOrderDetail/postOderDetails", {  
+            orderId:cusId,
             menuID: menuID,
             qty:qty,
             totPrice:totPrice,
@@ -150,7 +174,7 @@ const addItem = async (e) => {
                   value={totPrice} onChange={(e) => setTotPrice(e.target.value)}
                   />
 
-                  <button   type="submit" onSubmit={addItem} >AddItem</button>
+                  <button   type="submit" onSubmit={addItem} >addItem</button>
                   {/* <button   type="submit" onSubmit={ConfirmOrder} >ConfirmOrder</button> */}
 
     </div>

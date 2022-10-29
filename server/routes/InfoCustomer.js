@@ -5,8 +5,18 @@ const {customer} = require('../models');
 //
 
 router.get("/getcustomer", async (req, res) => {
-    //res.send("hello world");
+
     const listOfcustomer = await customer.findAll();
+    res.json(listOfcustomer);
+});
+
+router.get("/getcustomer/:cusId", async (req, res) => {
+    const cusId = req.params.cusId;
+    const listOfcustomer = await customer.findAll( {
+        where: {
+            cusId:cusId
+        }
+      });
     res.json(listOfcustomer);
 });
 
@@ -15,7 +25,6 @@ router.post("/postcustomer", async (req, res) => {
     const customers = req.body; 
     await customer.create(customers);
     res.json(customers);
-
 });
 
 module.exports = router
