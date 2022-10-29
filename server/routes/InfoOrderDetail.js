@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const {orderDetails} = require('../models');
-
+//
 router.post("/postOderDetails", async (req, res) => {
     const foodItems = req.body; 
     await menu.create(foodItems);
@@ -27,3 +27,4 @@ router.get("/getOrder/:BLD", async (req, res) => {
     res.json(listOfOrderItems);
   });
 
+  module.exports = router

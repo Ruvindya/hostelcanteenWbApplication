@@ -4,12 +4,14 @@ import {useState } from "react";
 import "../App.css";
 
 function NewUser() {
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [userName, setUserName] = useState('');
-    const [password, setPassword] = useState('');
 
 
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [userName, setUserName] = useState("");
+    const [password, setPassword] = useState("");
+
+//
   const Register = async (e) => {
     e.preventDefault();
   
@@ -26,10 +28,10 @@ function NewUser() {
     } catch (error) {
    console.log(error);
     }
-     [name, setName] = useState(" ");
-     [email, setEmail] = useState(" ");
-     [userName, setUserName] = useState(" ");
-     [password, setPassword] = useState(" ");
+    //  [name, setName] = useState(" ");
+    //  [email, setEmail] = useState(" ");
+    //  [userName, setUserName] = useState(" ");
+    //  [password, setPassword] = useState(" ");
 }
   
 
@@ -63,7 +65,7 @@ function NewUser() {
           value={password} onChange={(e) => setPassword(e.target.value)}
           />
 
-        <button   type="submit" onSubmit={Register}>ADD User</button>
+        <button   type="submit" onSubmit={Register}>Register</button>
       </div>
 
     </div> 

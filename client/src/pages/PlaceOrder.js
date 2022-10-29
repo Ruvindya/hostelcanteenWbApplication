@@ -7,69 +7,68 @@ function PlaceOrder() {
 
   const [listOfItems, setListOfTtems] = useState([]);
 
-    //customer table attributes
-    const [itemId, setitemId] = useState(); //order
-    const [name, setName] = useState("");//order
+    //customer table attributess
+   
+    const [cusName, setCusName] = useState("");//order
     const [block, setBlock] = useState("");
-    const [roomNo, setRoomNo] = useState("");
+    const [roomNo, setRoomNo] = useState();
     const [phoneNo, setPhoneNo] = useState();
 
     //orderDetails table attributes
-    const [itemName, setitemName] = useState();
-    const [price, setprice] = useState();
-    const [isAvailabe, setisAvailabe] = useState(); 
+    const [menuID, setMenuID] = useState(); //order
+    const [qty, setQty] = useState();
+    const [totPrice, setTotPrice] = useState();
+ 
     
 
     const [BLD, setBLD] = useState("B");
-    const [menuID, setMenuID] = useState();
-    const [qty, setQty] = useState();
-    const [totPrice, setTotPrice] = useState();
+    const [itemName, setitemName] = useState();
+    const [price, setprice] = useState();
+    const [isAvailabe, setisAvailabe] = useState(); 
+  
+    
 
    //BLD for order table
    //totAmount have to calculate
 
 
-  const ConfirmOrder = async (e) => {
-    e.preventDefault();
+//   const ConfirmOrder = async (e) => {
+//     e.preventDefault();
   
 
-    try {
-        await axios.post('http://localhost:3001/InfoCustomer', {  
-            name:name,
-            block: block,
-            roomNo:roomNo,
-            phoneNo: phoneNo,
-            
-
-        })
+//     try {
+//         await axios.post('http://localhost:3001/InfoCustomer/postcustomer', {  
+//           cusName:cusName,
+//             block: block,
+//             roomNo:roomNo,
+//             phoneNo: phoneNo,
+//         })
         
-    } catch (error) {
-   console.log(error);
-    }
-     
-}
+//     } catch (error) {
+//    console.log(error);
+//     }
+// }
 
 
 
-const showMenu = async (e) => {
-  e.preventDefault();
+// const showMenu = async (e) => {
+//   e.preventDefault();
 
 
-  try {
-      await axios.post('http://localhost:3001/InfoMenu/${B}', {  
-          name:name,
-          block: block,
-          roomNo:roomNo,
-          phoneNo: phoneNo,
+//   try {
+//       await axios.post('http://localhost:3001/InfoMenu/${B}', {  
+//         cusName:cusName,
+//           block: block,
+//           roomNo:roomNo,
+//           phoneNo: phoneNo,
           
 
-      })
+//       })
       
-  } catch (error) {
- console.log(error);
-  }
-   
-}
+//   } catch (error) {
+//  console.log(error);
+//   }  
+// }
   
 
 const addItem = async (e) => {
@@ -79,19 +78,17 @@ const addItem = async (e) => {
     try {
       await axios.post('http://localhost:3001/InfoCustomer/postcustomer', {  
 
-            name:name,
+        cusName:cusName,
             block: block,
             roomNo:roomNo,
             phoneNo:phoneNo,
 
         })
         await axios.post('http://localhost:3001/InfoOrderDetail/postOderDetails', {  
-
-            itemId:itemId,
+            //orderId:itemId,
             menuID: menuID,
             qty:qty,
             totPrice:totPrice,
-
         })
 
 
@@ -112,8 +109,8 @@ const addItem = async (e) => {
               <h5>Fill customer details</h5>
 
               <label className='name'>Customer Name</label>
-                <input type="name" placeholder="Ex:Name" name="name" required  
-                value={name}  onChange={(e) => setName(e.target.value)} 
+                <input type="cusName" placeholder="Ex:Name" name="cusName" required  
+                value={cusName}  onChange={(e) => setCusName(e.target.value)} 
                 />
 
               <label>block</label>
@@ -138,7 +135,7 @@ const addItem = async (e) => {
 
                   <h5>Fill order details</h5>
 
-                  <label>itemID</label>
+                  <label>menuID</label>
                   <input type="menuID" placeholder="Ex:001" name="menuID" required
                   value={menuID} onChange={(e) => setMenuID(e.target.value)}
                   />
@@ -154,7 +151,7 @@ const addItem = async (e) => {
                   />
 
                   <button   type="submit" onSubmit={addItem} >AddItem</button>
-                  <button   type="submit" onSubmit={ConfirmOrder} >ConfirmOrder</button>
+                  {/* <button   type="submit" onSubmit={ConfirmOrder} >ConfirmOrder</button> */}
 
     </div>
 

@@ -10,13 +10,13 @@ module.exports = (sequelize,DataTypes) => {
                 primaryKey: true,
                 autoIncrement: true,
             },
-            name: {
+            cusName: {
                 type: DataTypes.STRING,
                 allowNull: false,
                 defaultValue:"EXcus",
             },
             block: {
-                type: DataTypes.CHAR,
+                type: DataTypes.STRING,
                 allowNull: false,
                 defaultValue:"BlockNo",
             },

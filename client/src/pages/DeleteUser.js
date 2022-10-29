@@ -2,10 +2,13 @@ import React from 'react';
 import axios from "axios";
 import { confirmAlert } from 'react-confirm-alert';
 import {useEffect, useState} from "react";
-
 import "../App.css";
 
 function DeleteUser() {
+
+  const refreshPage = ()=>{
+    window.location.reload();
+ }
 
     const [listOfUsers, setListOfUsers] = useState([]);
 
@@ -20,10 +23,13 @@ function DeleteUser() {
 
   const DeleteProcess = (userId) => {
 
-    axios.delete("http://localhost:3001/InfoUser/delete/:userId",userId).then((response) => {
+    axios.delete(`http://localhost:3001/InfoUser/delete/${userId}`,userId).then((response) => {
       
       alert("User Deleted successfull");
+      window.location.reload(false);  
       console.log(userId.response.data);
+      
+     
     }
     ).catch((err) => {
       console.log(err);
@@ -32,7 +38,7 @@ function DeleteUser() {
     ;
   };
 
-  const confirmDelete = (id) => {
+  const confirmDelete = (userId) => {
     confirmAlert({
       title: 'Confirm to Delete',
       message: 'Are you sure to delete this user?',
@@ -41,7 +47,7 @@ function DeleteUser() {
           className: 'confirmAlert',
           label: 'Yes',
           style: {backgroundColor: 'red'},
-          onClick: () => DeleteProcess(id)
+          onClick: () => DeleteProcess(userId)
         },
         {
           label: 'No',
@@ -50,10 +56,29 @@ function DeleteUser() {
     });
   };
   
-
   return (
     <div>
     <h1>User list</h1>
+    <button onClick={refreshPage}>Refresh</button>
+
+
+    {/* <div className={comboboxStyles} {...getComboboxProps()}>
+    <input
+      type="text"
+      value={query}
+      onChange={(event) => setQuery(event.target.value)}
+      {...getInputProps()}
+    />
+    <button
+      type="button"
+      {...getToggleButtonProps()}
+      aria-label="toggle menu"
+    >
+      &#8595;
+    </button>
+    <button type="submit">Search</button>
+  </div> */}
+
        <div className='user'>
 
         <table>
@@ -75,6 +100,7 @@ function DeleteUser() {
 
                 ))}
         </table>
+        
 </div> 
 </div>
 

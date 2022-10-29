@@ -7,7 +7,7 @@ module.exports = (sequelize,DataTypes) => {
    
         const customerbillSchema = sequelize.define("customerbill" , {   
     
-            oderId: {
+            billId: {
                 type: DataTypes.INTEGER,
                 allowNull: false,
                 primaryKey: true,

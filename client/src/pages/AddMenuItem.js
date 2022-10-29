@@ -5,7 +5,7 @@ import "../App.css";
 
 
 function AddMenuItem() {
-    
+    //
     const [BLD, setBLD] = useState('');
     const [itemName, setItemName] = useState('');
     const [price, setPrice] = useState('');
@@ -16,7 +16,7 @@ function AddMenuItem() {
   
 
     try {
-        await axios.post('http://localhost:3001/InfoMenu', {  
+        await axios.post('http://localhost:3001/InfoMenu/postItem', {  
             BLD:BLD,
             itemName: itemName,
             price:price,

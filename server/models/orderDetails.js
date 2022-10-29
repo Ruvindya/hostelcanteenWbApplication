@@ -4,17 +4,6 @@ module.exports = (sequelize,DataTypes) => {
     //Postschema
         const oderDetailsSchema = sequelize.define("oderDetails" , {   
     
-            orderId: {
-                type: DataTypes.INTEGER,
-                allowNull: false,
-                
-                references: {
-                    model: 'order', // 'fathers' refers to table name
-                    key: 'oderNo', // 'id' refers to column name in fathers table
-                 },
-                //forign keyk
-                defaultValue:"123",
-            },
             oderDetailsId: {
                 type: DataTypes.INTEGER,
                 allowNull: false,
@@ -22,6 +11,18 @@ module.exports = (sequelize,DataTypes) => {
                 
                 autoIncrement: true,
             },
+            orderId: {
+                type: DataTypes.INTEGER,
+                allowNull: false,
+                
+                references: {
+                    model: 'customer', // 'fathers' refers to table name
+                    key: 'cusId', // 'id' refers to column name in fathers table
+                 },
+                //forign keyk
+                defaultValue:123,
+            },
+            
 
             menuID: {
                 type: DataTypes.INTEGER,
@@ -34,12 +35,12 @@ module.exports = (sequelize,DataTypes) => {
             qty: {
                 type: DataTypes.INTEGER,
                 allowNull: false,
-                defaultValue:"1",
+                defaultValue:1,
             },
             totPrice: {
-                type: DataTypes.DOUBLE,
+                type: DataTypes.INTEGER,
                 allowNull: false,
-                defaultValue:"50.0",
+                defaultValue:80,
             },
 
     

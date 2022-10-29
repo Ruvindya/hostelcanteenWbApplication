@@ -18,15 +18,13 @@ router.post("/postUser", async (req, res) => {
 
 });
 
-
-
+//working
 router.delete("/delete/:userId", async (req, res) => {
     const userId = req.params.userId; 
     await user.destroy({
         where: { userId: userId },
       });
-    // await user.delete(userId);
-    // res.json(userId);
+
 });
 
 
