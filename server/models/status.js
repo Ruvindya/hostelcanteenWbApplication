@@ -1,13 +1,17 @@
 module.exports = (sequelize,DataTypes) => {
 
-
     //Postschema
-        const StatusSchema = sequelize.define("status" , {   
+        const StatusSchema = sequelize.define("showstatus" , {   
     
+            statusId: {
+                type: DataTypes.INTEGER,
+                allowNull: false,
+                primaryKey: true,
+                autoIncrement: true,
+            },
             status: {
                 type: DataTypes.STRING,
                 allowNull: false,
-                primaryKey: true,
                 defaultValue:"pending",
             },
             BLD: {
@@ -18,16 +22,12 @@ module.exports = (sequelize,DataTypes) => {
             TF: {
                 type: DataTypes.STRING,
                 allowNull: false,
-                defaultValue:"T",
+                defaultValue:"TRUE",
             },
-           
 
-    
         },{
             freezeTableName: true,
-            timestamps: false,
-            
-            
+            timestamps: false,    
         });
     
         return StatusSchema;
