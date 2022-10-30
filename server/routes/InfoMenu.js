@@ -28,29 +28,42 @@ router.post("/postItem", async (req, res) => {
     res.json(foodItems);
 });
 
-exports.update = (req, res) => {
-  const menuID = req.params.id;
-
-  router.update(req.body, {
-    where: { menuID: menuID }
+//working with postman
+router.put("/UpdateItem/:menuID", async (req, res, next)=> {
+  const {menuID} = req.params; 
+  const event = await menu.findByPk(menuID)
+  const updateEvent = await  event.update(req.body )
+  res.json(updateEvent) 
+  .then(function(rowsUpdated){
+    res.json(rowsUpdated) 
   })
-    .then(num => {
-      if (num == 1) {
-        res.send({
-          message: "Tutorial was updated successfully."
-        });
-      } else {
-        res.send({
-          message: `Cannot update Tutorial with id=${menuID}. Maybe Tutorial was not found or req.body is empty!`
-        });
-      }
-    })
-    .catch(err => {
-      res.status(500).send({
-        message: "Error updating Tutorial with id=" + menuID
-      });
-    });
-};
+  .catch(next)
+ })
+
+
+// exports.update = (req, res) => {
+//   const menuID = req.params.id;
+
+//   router.update(req.body, {
+//     where: { menuID: menuID }
+//   })
+//     .then(num => {
+//       if (num == 1) {
+//         res.send({
+//           message: "Tutorial was updated successfully."
+//         });
+//       } else {
+//         res.send({
+//           message: `Cannot update Tutorial with id=${menuID}. Maybe Tutorial was not found or req.body is empty!`
+//         });
+//       }
+//     })
+//     .catch(err => {
+//       res.status(500).send({
+//         message: "Error updating Tutorial with id=" + menuID
+//       });
+//     });
+// };
 
 
 
