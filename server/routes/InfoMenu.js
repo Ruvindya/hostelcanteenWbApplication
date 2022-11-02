@@ -33,12 +33,19 @@ router.put("/UpdateItem/:menuID", async (req, res, next)=> {
   const {menuID} = req.params; 
   const event = await menu.findByPk(menuID)
   const updateEvent = await  event.update(req.body )
+  //await menu.fi
+  
   res.json(updateEvent) 
   .then(function(rowsUpdated){
     res.json(rowsUpdated) 
   })
   .catch(next)
  })
+
+//  $set:{BLD: req.body.BLD,
+//   itemName:req.body.itemName,
+//   price: req.body.price,
+//   isAvailabe:req.body.isAvailabe}
 
 
 // exports.update = (req, res) => {
