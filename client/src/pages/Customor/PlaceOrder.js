@@ -1,27 +1,32 @@
 import React from 'react';
 import axios from "axios";
-
 import {useEffect, useState} from "react";
-import "../PlaceOrder.css";
+import "../../PlaceOrder.css";
+import { useLocation , useNavigate} from "react-router-dom";
 
 function PlaceOrder() {
 
-  const [listOfItems, setListOfTtems] = useState([]);
+  const [listOfItems, setListOfItems] = useState([]);
   const [listOfcustomer, setListOfCustomer] = useState([]);
+
+  const location = useLocation();
+  const cusId= location.state.cusId;
+  
+
 
     //customer table attributess
    
-    const [cusId, setCusId] = useState();
-    const [cusName, setCusName] = useState("");//order
-    const [block, setBlock] = useState("");
-    const [roomNo, setRoomNo] = useState();
-    const [phoneNo, setPhoneNo] = useState();
+    // const [cusId, setCusId] = useState();
+    // const [cusName, setCusName] = useState("");//order
+    // const [block, setBlock] = useState("");
+    // const [roomNo, setRoomNo] = useState();
+    // const [phoneNo, setPhoneNo] = useState();
 
     //orderDetails table attributes
     const [menuID, setMenuID] = useState(); //order
     const [qty, setQty] = useState();
     const [totPrice, setTotPrice] = useState();
- 
+    const [BLD, setBLD] = useState();
     
 
     
@@ -79,34 +84,32 @@ function PlaceOrder() {
 //     setListOfCustomer(response.data);
 //   });
 // }, []);
-
+//
 
 const addItem = async (e) => {
     e.preventDefault();
   
     console.log("OKkk");
     try {
-      await axios.post("http://localhost:3001/InfoCustomer/postcustomer", {  
+      // await axios.post("http://localhost:3001/InfoCustomer/postcustomer", {  
         
-            cusName:cusName,
-            block: block,
-            roomNo:roomNo,
-            phoneNo:phoneNo,
+      //       cusName:cusName,
+      //       block: block,
+      //       roomNo:roomNo,
+      //       phoneNo:phoneNo,
 
-        })
-
+      //   })
 
 
         //not completed.. error coming after added this part
-        axios.get(`http://localhost:3001/InfoCustomer/getcustomer/${cusId}`).then((response) => {
-          
-        console.log(response.data);
-        setListOfCustomer(response.data.cusId)
-        // setListOfCustomer(response.data);
-         });
+        axios.get(`http://localhost:3001/InfoMenu/bybld/${BLD}`).then((response) => {
+        
+        setListOfItems(response.data)
+        console.log(response)
+  
+      });
        
       
-
 
         await axios.post("http://localhost:3001/InfoOrderDetail/postOderDetails", {  
             orderId:cusId,
@@ -127,32 +130,32 @@ const addItem = async (e) => {
    
 
   <form  className="PlaceOrderForm" >
-      <h1>Place Order</h1>
-    <div className="CustomerDetails">
+      <h1>Place Breakfast Order</h1>
+    {/* <div className="CustomerDetails">
 
               <h5>Fill customer details</h5>
 
               <label className='name'>Customer Name</label>
-                <input type="cusName" placeholder="Ex:Name" name="cusName" required  
+                <input type="text" placeholder="Ex:Name" name="cusName" required  
                 value={cusName}  onChange={(e) => setCusName(e.target.value)} 
                 />
 
               <label>block</label>
-                <input type="block" placeholder="Ex:A" name="block" required
+                <input type="text" placeholder="Ex:A" name="block" required
                 value={block} onChange={(e) => setBlock(e.target.value)}
                 />
 
               <label>roomNo</label>
-                <input type="roomNo" placeholder="Ex:012" name="roomNo" required
+                <input type="text" placeholder="Ex:012" name="roomNo" required
                 value={roomNo} onChange={(e) => setRoomNo(e.target.value)}
                 />
 
               <label>phoneNo</label>
-                <input type="phoneNo" placeholder="EX:0771234567" name="phoneNo" required
+                <input type="text" placeholder="EX:0771234567" name="phoneNo" required
                 value={phoneNo} onChange={(e) => setPhoneNo(e.target.value)}
                 />
 
-    </div> 
+    </div>  */}
 
 
     <div className="orderDetails" >
@@ -160,17 +163,17 @@ const addItem = async (e) => {
                   <h5>Fill order details</h5>
 
                   <label>menuID</label>
-                  <input type="menuID" placeholder="Ex:001" name="menuID" required
+                  <input type="text" placeholder="Ex:001" name="menuID" required
                   value={menuID} onChange={(e) => setMenuID(e.target.value)}
                   />
 
                   <label>qty</label>
-                  <input type="qty" placeholder="Ex:1" name="qty" required
+                  <input type="text" placeholder="Ex:1" name="qty" required
                   value={qty} onChange={(e) => setQty(e.target.value)}
                   />
 
                   <label>totPrice</label>
-                  <input type="totPrice" placeholder="EX:0" name="totPrice" required
+                  <input type="text" placeholder="EX:0" name="totPrice" required
                   value={totPrice} onChange={(e) => setTotPrice(e.target.value)}
                   />
 
@@ -188,7 +191,7 @@ const addItem = async (e) => {
         <table>
                 <tr>
                     <td className='columnName'><h3>menuID</h3></td>
-                    <td className='columnName'><h3>BLD</h3></td>
+                    
                     <td className='columnName'><h3>ItemName</h3></td>
                     <td className='columnName'> <h3>Price</h3></td>
                     <td className='columnName'> <h3>isAvailabe</h3></td>
@@ -197,7 +200,7 @@ const addItem = async (e) => {
                 {listOfItems.map((value,key)=>(
                 <tr key={key}>
                     <td className='columnData'>{value.menuID} </td> 
-                    <td className='columnData'>{value.BLD}</td>
+                    
                     <td className='columnData'>{value.itemName}</td>
                     <td className='columnData'>{value.price}</td>
                     <td className='columnData'>{value.isAvailabe}</td>

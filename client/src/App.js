@@ -8,7 +8,7 @@ import DeleteUser from "./pages/DeleteUser";
 import AddMenuItem from "./pages/AddMenuItem";
 import UpdateMenu from "./pages/UpdateMenu";
 import GetMenuItem from "./pages/GetMenuItem";
-import PlaceOrder from "./pages/PlaceOrder";
+import PlaceOrder from "./pages/Customor/PlaceOrder";
 import Navbar from './pages/Navbar';
 
 function App() {
