@@ -24,7 +24,7 @@ router.get("/getcustomer/:cusId", async (req, res) => {
 router.post("/postcustomer", async (req, res) => {
     const customers = req.body; 
     await customer.create(customers);
-    res.json(customers);
+    res.json(cusId);    //not sure
 });
 
 module.exports = router
