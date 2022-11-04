@@ -120,4 +120,13 @@ router.put("/UpdateItem/:menuID", async (req, res, next)=> {
 // });
 
 
+//working
+router.delete("/delete/:menuID", async (req, res) => {
+  const menuID = req.params.menuID; 
+  await menu.destroy({
+      where: { menuID: menuID },
+    });
+
+});
+
 module.exports = router
