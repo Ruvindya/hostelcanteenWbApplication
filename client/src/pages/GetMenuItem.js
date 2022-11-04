@@ -6,6 +6,8 @@ import {useNavigate} from 'react-router-dom';
 
 
 function GetMenuItem() {
+
+  const BLD ='B';
     
     // const [BLD, setBLD] = useState('B');
     // const [itemName, setItemName] = useState('');
@@ -14,7 +16,7 @@ function GetMenuItem() {
     const [listOfItems, setListOfItems] = useState([]);
 
     useEffect(() => {
-      axios.get("http://localhost:3001/InfoMenu/getItem").then((response) => {
+      axios.get(`http://localhost:3001/InfoMenu/bybld/${BLD}`).then((response) => {
         
         setListOfItems(response.data)
         console.log(response)
@@ -84,7 +86,7 @@ const toUpdateItem = (menuID) => {
                         <table>
                                 <tr>
                                     <td className='columnName'><h3>Menu Id   |   </h3></td>
-                                    <td className='columnName'><h3>BLD   |  </h3></td>
+                                    {/* <td className='columnName'><h3>BLD   |  </h3></td> */}
                                     <td className='columnName'><h3>item Name   |   </h3></td>
                                     <td className='columnName'><h3>Price   |   </h3></td>
                                     <td className='columnName'> <h3>isAvailable   |  </h3></td>.
@@ -94,7 +96,7 @@ const toUpdateItem = (menuID) => {
                                 {listOfItems.map((value,key)=>(
                                 <tr key={key}>
                                     <td className='columnData'>{value.menuID} </td> 
-                                    <td className='columnData'>{value.BLD} </td> 
+                                    {/* <td className='columnData'>{value.BLD} </td>  */}
                                     <td className='columnData'>{value.itemName}</td>
                                     <td className='columnData'>{value.price}</td>
                                     <td className='columnData'>{value.isAvailabe}</td>

@@ -15,7 +15,7 @@ function App() {
  
 return (
 
-  
+  //
  <div className='App' > 
 
 
@@ -32,7 +32,7 @@ return (
     <Link to = "/PlaceOrder"> Place a Order</Link> */}
     
     <Routes>
-      <Route path="/HomePage" exact element={<Home/>} />
+      <Route path="/" exact element={<Home/>} />
       <Route path="/NewUser" exact element={<NewUser/>} />
       <Route path="/Loggin" exact element={<Login/>} />
       <Route path="/DeleteUser" exact element={<DeleteUser/>} />

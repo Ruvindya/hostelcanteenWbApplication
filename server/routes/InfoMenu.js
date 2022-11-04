@@ -2,17 +2,30 @@ const express = require("express");
 const router = express.Router();
 const {menu} = require('../models');
 
-//working
+//working all items
 router.get("/getItem", async (req, res) => {
     //res.send("hello world");
     const listOfMenuItems = await menu.findAll();
     res.json(listOfMenuItems);
 });
 
-//working
-router.get("/:BLD", async (req, res) => {
+
+//working    
+router.get("/byid/:menuID", async (req, res) => {
   //res.send("hello world");
-  const BLD = req.params.BLD;
+  const menuID= req.params.menuID;
+  const listOfMenuItems = await menu.findAll( {
+    where: {
+      menuID:menuID
+    }
+  });
+  res.json(listOfMenuItems);
+});
+
+//working    
+router.get("/bybld/:BLD", async (req, res) => {
+  //res.send("hello world");
+  const BLD= req.params.BLD;
   const listOfMenuItems = await menu.findAll( {
     where: {
       BLD:BLD
@@ -36,10 +49,6 @@ router.put("/UpdateItem/:menuID", async (req, res, next)=> {
   //await menu.fi
   
   res.json(updateEvent) 
-  .then(function(rowsUpdated){
-    res.json(rowsUpdated) 
-  })
-  .catch(next)
  })
 
 //  $set:{BLD: req.body.BLD,
