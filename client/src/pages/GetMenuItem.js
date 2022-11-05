@@ -8,12 +8,13 @@ import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 
 function GetMenuItem() {
 
-  const BLD ='B';
+ 
     //
     // const [BLD, setBLD] = useState('B');
     // const [itemName, setItemName] = useState('');
     // const [price, setPrice] = useState('');
     // const [isAvailabe, setAvailability] = useState('');
+    const BLD ='B';
     const [listOfItems, setListOfItems] = useState([]);
 
     useEffect(() => {

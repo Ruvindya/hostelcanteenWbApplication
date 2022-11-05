@@ -24,7 +24,6 @@ const addCustomor = async (e) => {
     try {
 
       await axios.post("http://localhost:3001/InfoCustomer/postcustomer", {  
-        
             cusName:cusName,
             block: block,
             roomNo:roomNo,
@@ -44,7 +43,7 @@ const addCustomor = async (e) => {
 
   return (
 
-    <form  className="PlaceOrderForm" >
+    <form  className="PlaceOrderForm" onSubmit={addCustomor} >
 
       <h1>Place Breakfast Order</h1>
 
@@ -72,7 +71,7 @@ const addCustomor = async (e) => {
                 value={phoneNo} onChange={(e) => setPhoneNo(e.target.value)}
                 />
 
-            <button   type="submit" onSubmit={addCustomor} >Register</button>
+            <button   type="submit" >addCustomor</button>
 
     </div> 
 

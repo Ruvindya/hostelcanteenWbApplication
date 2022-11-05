@@ -12,29 +12,28 @@ function PlaceOrder() {
   const location = useLocation();
   const cusId= location.state.cusId;
   
+  //get Breakfast menue Items
+  const BLD ='B';
 
-
-    //customer table attributess
-   
-    // const [cusId, setCusId] = useState();
-    // const [cusName, setCusName] = useState("");//order
-    // const [block, setBlock] = useState("");
-    // const [roomNo, setRoomNo] = useState();
-    // const [phoneNo, setPhoneNo] = useState();
+    useEffect(() => {
+      axios.get(`http://localhost:3001/InfoMenu/bybld/${BLD}`).then((response) => {
+        
+        setListOfItems(response.data)
+        console.log(response)
+  
+      });
+    }, []);
 
     //orderDetails table attributes
     const [menuID, setMenuID] = useState(); //order
     const [qty, setQty] = useState();
     const [totPrice, setTotPrice] = useState();
-    const [BLD, setBLD] = useState();
-    
-
+    // const [BLD, setBLD] = useState();
     
     const [itemName, setitemName] = useState();
     const [price, setprice] = useState();
     const [isAvailabe, setisAvailabe] = useState(); 
   
-    
 
    //BLD for order table
    //totAmount have to calculate
@@ -101,13 +100,7 @@ const addItem = async (e) => {
       //   })
 
 
-        //not completed.. error coming after added this part
-        axios.get(`http://localhost:3001/InfoMenu/bybld/${BLD}`).then((response) => {
-        
-        setListOfItems(response.data)
-        console.log(response)
-  
-      });
+      
        
       
 
@@ -129,33 +122,9 @@ const addItem = async (e) => {
   return (
    
 
-  <form  className="PlaceOrderForm" >
+  <form  className="PlaceOrderForm" onSubmit={addItem} >
       <h1>Place Breakfast Order</h1>
-    {/* <div className="CustomerDetails">
-
-              <h5>Fill customer details</h5>
-
-              <label className='name'>Customer Name</label>
-                <input type="text" placeholder="Ex:Name" name="cusName" required  
-                value={cusName}  onChange={(e) => setCusName(e.target.value)} 
-                />
-
-              <label>block</label>
-                <input type="text" placeholder="Ex:A" name="block" required
-                value={block} onChange={(e) => setBlock(e.target.value)}
-                />
-
-              <label>roomNo</label>
-                <input type="text" placeholder="Ex:012" name="roomNo" required
-                value={roomNo} onChange={(e) => setRoomNo(e.target.value)}
-                />
-
-              <label>phoneNo</label>
-                <input type="text" placeholder="EX:0771234567" name="phoneNo" required
-                value={phoneNo} onChange={(e) => setPhoneNo(e.target.value)}
-                />
-
-    </div>  */}
+    
 
 
     <div className="orderDetails" >
@@ -177,7 +146,7 @@ const addItem = async (e) => {
                   value={totPrice} onChange={(e) => setTotPrice(e.target.value)}
                   />
 
-                  <button   type="submit" onSubmit={addItem} >addItem</button>
+                  <button   type="submit"  >addItem</button>
                   {/* <button   type="submit" onSubmit={ConfirmOrder} >ConfirmOrder</button> */}
 
     </div>
