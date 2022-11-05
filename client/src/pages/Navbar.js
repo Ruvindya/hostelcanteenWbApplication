@@ -39,7 +39,7 @@ const Navbar = () => {
         </li>
 
         <li className="nav-item">
-          <a className="nav-link" href="/PlaceOrder">Place Order</a>
+          <a className="nav-link" href="/CustomorRegister">Place Order</a>
         </li>
 
 

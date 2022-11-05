@@ -7,8 +7,8 @@ import {useNavigate} from 'react-router-dom';
 const CustomorRegister = () => {
 
     const [cusId, setCusId] = useState();
-    const [cusName, setCusName] = useState("");//order
-    const [block, setBlock] = useState("");
+    const [cusName, setCusName] = useState('');
+    const [block, setBlock] = useState('');
     const [roomNo, setRoomNo] = useState();
     const [phoneNo, setPhoneNo] = useState();
 

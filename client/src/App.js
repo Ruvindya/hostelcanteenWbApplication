@@ -9,6 +9,7 @@ import AddMenuItem from "./pages/AddMenuItem";
 import UpdateMenu from "./pages/UpdateMenu";
 import GetMenuItem from "./pages/GetMenuItem";
 import PlaceOrder from "./pages/Customor/PlaceOrder";
+import CustomorRegister from "./pages/Customor/CustomorRegister";
 import Navbar from './pages/Navbar';
 
 function App() {
@@ -40,6 +41,7 @@ return (
       <Route path="/UpdateMenu" exact element={<UpdateMenu/>} />
       <Route path="/GetMenuItem" exact element={<GetMenuItem/>} />
       <Route path="/PlaceOrder" exact element={<PlaceOrder/>} />
+      <Route path="/CustomorRegister" exact element={<CustomorRegister/>} />
     </Routes>
   </Router>
  </div> 
