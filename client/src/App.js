@@ -7,7 +7,9 @@ import Login from "./pages/Login";
 import DeleteUser from "./pages/DeleteUser";
 import AddMenuItem from "./pages/AddMenuItem";
 import UpdateMenu from "./pages/UpdateMenu";
-import GetMenuItem from "./pages/GetMenuItem";
+import GetMenuBreakFastItem from "./pages/GetMenuBreakFastItem";
+import GetMenuLunchItem from "./pages/GetMenuLunchItem";
+import GetMenuDinnerItem from "./pages/GetMenuDinnerItem";
 import PlaceOrder from "./pages/Customor/PlaceOrder";
 import CustomorRegister from "./pages/Customor/CustomorRegister";
 import Navbar from './pages/Navbar';
@@ -39,7 +41,9 @@ return (
       <Route path="/DeleteUser" exact element={<DeleteUser/>} />
       <Route path="/AddMenuItem" exact element={<AddMenuItem/>} />
       <Route path="/UpdateMenu" exact element={<UpdateMenu/>} />
-      <Route path="/GetMenuItem" exact element={<GetMenuItem/>} />
+      <Route path="/GetMenuBreakFastItem" exact element={<GetMenuBreakFastItem/>} />
+      <Route path="/GetMenuLunchItem" exact element={<GetMenuLunchItem/>} />
+      <Route path="/GetMenuDinnerItem" exact element={<GetMenuDinnerItem/>} />
       <Route path="/PlaceOrder" exact element={<PlaceOrder/>} />
       <Route path="/CustomorRegister" exact element={<CustomorRegister/>} />
     </Routes>

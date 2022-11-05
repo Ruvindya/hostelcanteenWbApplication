@@ -6,7 +6,7 @@ import { useLocation , useNavigate} from "react-router-dom";
 
 function UpdateMenu() {
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const location = useLocation();
   const menuID = location.state.menuID;
 
@@ -45,8 +45,8 @@ function UpdateMenu() {
 
             })
 
-
-            navigate("/GetMenuItem");
+//meya nevigate venna vena page ekak danna one.. 
+            // navigate("/GetMenuBreakFastItem");
 
     } catch (error) {
    console.log(error);

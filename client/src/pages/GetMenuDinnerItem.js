@@ -6,15 +6,10 @@ import {useNavigate} from 'react-router-dom';
 import { confirmAlert } from 'react-confirm-alert'; // Import 
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 
-function GetMenuItem() {
+function GetMenuDinnerItem() {
 
- 
-    //
-    // const [BLD, setBLD] = useState('B');
-    // const [itemName, setItemName] = useState('');
-    // const [price, setPrice] = useState('');
-    // const [isAvailabe, setAvailability] = useState('');
-    const BLD ='B';
+
+    const BLD ='D';
     const [listOfItems, setListOfItems] = useState([]);
 
     useEffect(() => {
@@ -25,34 +20,6 @@ function GetMenuItem() {
   
       });
     }, []);
-
-//   const GetItemDet = async (e) => {
-//     e.preventDefault();
-
-
-//     try {
-
-//       useEffect(() => {
-//         axios.get("http://localhost:3001/InfoMenu/getItem").then((response) => {
-          
-//           setListOfItems(response.data)
-//           console.log(response)
-    
-//         });
-//       }, []);
-
-
-//         // await axios.put('http://localhost:3001/InfoMenu', {  
-//         //     BLD:BLD,
-//         //     itemName: itemName,
-//         //     price:price,
-//         //     isAvailabe: isAvailabe,
-//         // })
-        
-//     } catch (error) {
-//    console.log(error);
-//     }   
-// }
 
 const navigate = useNavigate();
 
@@ -103,7 +70,7 @@ const handleDelete = (menuID) => {
    
   <form   >
     <div className="App">
-<h2>Breakfast Menue Item</h2>
+<h2>Dinner Menue Item</h2>
             {/* <div className="SearchItemName" >
 
                 <h1>Search by meal</h1>
@@ -156,4 +123,4 @@ const handleDelete = (menuID) => {
   );
 }
 
-export default GetMenuItem;
+export default GetMenuDinnerItem;

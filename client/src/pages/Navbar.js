@@ -63,7 +63,9 @@ const Navbar = () => {
           </a>
           <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 
-            <a className="dropdown-item" href="/GetMenuItem">Get Menu</a>
+            <a className="dropdown-item" href="/GetMenuBreakFastItem">Get Breakfast Menu</a>
+            <a className="dropdown-item" href="/GetMenuLunchItem">Get Lunch Menu</a>
+            <a className="dropdown-item" href="/GetMenuDinnerItem">Get Dinner Menu</a>
             <a className="dropdown-item" href="/UpdateMenu">Update Menu</a>
             <a className="dropdown-item" href="/AddMenuItem">Add Menu Item</a>
 
