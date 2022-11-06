@@ -6,14 +6,16 @@ import { useLocation , useNavigate} from "react-router-dom";
 
 function PlaceOrder() {
 
-  const [listOfItems, setListOfItems] = useState([]);
-  const [listOfcustomer, setListOfCustomer] = useState([]);
-
   const location = useLocation();
   const cusId= location.state.cusId;
-  
-  //get Breakfast menue Items
-  const BLD ='B';
+  console.log(cusId);
+
+   //get Breakfast menue Items
+   const BLD ='B';
+
+  const [listOfItems, setListOfItems] = useState([]);
+  const [customer, setCustomer] = useState([]);
+
 
     useEffect(() => {
       axios.get(`http://localhost:3001/InfoMenu/bybld/${BLD}`).then((response) => {
@@ -22,18 +24,32 @@ function PlaceOrder() {
         console.log(response)
   
       });
+
+      axios.get(`http://localhost:3001/InfoCustomer/getcustomerbyid/${cusId}`).then((response) => {
+
+        setCustomer(response.data)
+        console.log(customer)
+        
+        });
+
     }, []);
+
+
+
 
     //orderDetails table attributes
     const [menuID, setMenuID] = useState(); //order
     const [qty, setQty] = useState();
-    const [totPrice, setTotPrice] = useState();
+    var [totPrice, setTotPrice] = useState("Rs.0.00 /=");
     // const [BLD, setBLD] = useState();
     
     const [itemName, setitemName] = useState();
     const [price, setprice] = useState();
     const [isAvailabe, setisAvailabe] = useState(); 
-  
+    
+    //final price
+    const [finalPrice, setFinalPrice] = useState("Rs.0.00 /=");
+
 
    //BLD for order table
    //totAmount have to calculate
@@ -85,8 +101,38 @@ function PlaceOrder() {
 // }, []);
 //
 
+
+
+
+//add item ebuvama mulinma enne mekata
+const calculateTotal = (e) => {
+  e.preventDefault();
+
+    listOfItems.map((val) => {
+      if (val.menuID == menuID) {
+        // setitemName(val.itemName);
+        if(val.isAvailabe === "true"){
+
+          //methani oder item eke tot eka calclate karanava
+          setTotPrice("Rs. " +(qty * val.price) + ".00 /=");
+          //finalPrice = finalPrice + (qty * val.price);
+          //console.log(finalPrice);
+        }
+        else{
+          alert("Item is not available Today !!");
+        }
+        
+      }
+      else{
+        alert("No Item excist !!");
+      }
+    });
+
+console.log("else eken eliyata awaa.."+totPrice);
+}
+
 const addItem = async (e) => {
-    e.preventDefault();
+
   
     console.log("OKkk");
     try {
@@ -101,9 +147,6 @@ const addItem = async (e) => {
 
 
       
-       
-      
-
         await axios.post("http://localhost:3001/InfoOrderDetail/postOderDetails", {  
             orderId:cusId,
             menuID: menuID,
@@ -122,31 +165,42 @@ const addItem = async (e) => {
   return (
    
 
-  <form  className="PlaceOrderForm" onSubmit={addItem} >
+  <form  className="PlaceOrderForm" onSubmit={calculateTotal}  >
+     
       <h1>Place Breakfast Order</h1>
     
+      <div className='customor-details'>
+                    {customer.map((value,key)=>(
+                    <td className='columnData-placeorder'> <h3>Hello {value.cusName} ,</h3></td>     
+                ))}     
+      </div> 
 
 
     <div className="orderDetails" >
-
+      
                   <h5>Fill order details</h5>
 
-                  <label>menuID</label>
-                  <input type="text" placeholder="Ex:001" name="menuID" required
-                  value={menuID} onChange={(e) => setMenuID(e.target.value)}
-                  />
+                  <label> Items </label>
+                  <select name="menuID" id="menuID" onChange={(e) => setMenuID(e.target.value)}>
+                    <option value="" >Select Item</option>
+                    <option value='1' >Rice</option>
+                    <option value='2' >String Hoppers</option>
+                    <option value='3' >Kottu</option>
+                    <option value='4' >Parotta</option>                
+                  </select>
 
-                  <label>qty</label>
-                  <input type="text" placeholder="Ex:1" name="qty" required
+                  <label>Quantity</label>
+                  <input type="number" placeholder="Ex:1" name="qty" required
                   value={qty} onChange={(e) => setQty(e.target.value)}
                   />
 
-                  <label>totPrice</label>
-                  <input type="text" placeholder="EX:0" name="totPrice" required
-                  value={totPrice} onChange={(e) => setTotPrice(e.target.value)}
-                  />
+                  <label>Totel Price </label>
+                
+                   <td className='columnData-placeorder'> <h3>{totPrice}</h3></td>     
 
-                  <button   type="submit"  >addItem</button>
+                 
+                
+                  <button   type="submit"  >Select Item</button>
                   {/* <button   type="submit" onSubmit={ConfirmOrder} >ConfirmOrder</button> */}
 
     </div>
@@ -178,7 +232,7 @@ const addItem = async (e) => {
 
                 ))}
         </table>
-</div> 
+    </div> 
 
 
     </form>

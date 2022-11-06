@@ -16,14 +16,15 @@ import Navbar from './pages/Navbar';
 
 function App() {
  
-return (
+return (  
+
 
   //
  <div className='App' > 
 
 
                 <Navbar/>
-
+ 
   <Router>
     {/* <Link to = "/HomePage"> Go to home  | </Link>
     <Link to = "/NewUser"> New User   | </Link>
@@ -49,6 +50,10 @@ return (
     </Routes>
   </Router>
  </div> 
+
+
+
+
  );
 
 
