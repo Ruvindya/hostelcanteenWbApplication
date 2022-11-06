@@ -10,21 +10,30 @@ router.get("/getcustomer", async (req, res) => {
     res.json(listOfcustomer);
 });
 
-router.get("/getcustomer/:cusId", async (req, res) => {
+router.get("/getcustomerbyid/:cusId", async (req, res) => {
     const cusId = req.params.cusId;
-    const listOfcustomer = await customer.findAll( {
+    const getCustomer = await customer.findAll( {
         where: {
             cusId:cusId
         }
       });
-    res.json(listOfcustomer);
+    res.json(getCustomer);
+    
+
+ 
 });
 
 
 router.post("/postcustomer", async (req, res) => {
-    const customers = req.body; 
-    await customer.create(customers);
-    res.json(customers);    //not sure
+    const {cusName, block, roomNo, phoneNo} = req.body;
+    const newcustomer = await customer.create({
+        cusName:cusName,
+        block: block,
+        roomNo:roomNo,
+        phoneNo:phoneNo,
+    });
+    res.json(newcustomer);
+
 });
 
 module.exports = router

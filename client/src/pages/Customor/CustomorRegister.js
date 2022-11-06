@@ -6,7 +6,7 @@ import {useNavigate} from 'react-router-dom';
 
 const CustomorRegister = () => {
 
-    const [cusId, setCusId] = useState();
+    // const [cusId, setCusId] = useState();
     const [cusName, setCusName] = useState('');
     const [block, setBlock] = useState('');
     const [roomNo, setRoomNo] = useState();
@@ -29,10 +29,12 @@ const addCustomor = async (e) => {
             roomNo:roomNo,
             phoneNo:phoneNo,
 
-        })
-
-        navigate("/PlaceOrder", { state: { cusId: cusId } });
-        
+        }).then((response) => {
+           // console.log(response.data.cusId);
+            const cusId = response.data.cusId;   
+          //  console.log(cusId);
+            navigate("/PlaceOrder", { state: { cusId:response.data.cusId } });
+        });
         
     } catch (error) {
    console.log(error);
@@ -73,11 +75,13 @@ const addCustomor = async (e) => {
 
             <button   type="submit" >addCustomor</button>
 
-    </div> 
+             
+ 
+    </div>   
 
     </form>
-  
-  )
+   
+  ) 
 }
 
 export default CustomorRegister
