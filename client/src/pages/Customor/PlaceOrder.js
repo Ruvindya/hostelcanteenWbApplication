@@ -108,6 +108,13 @@ function PlaceOrder() {
 const calculateTotal = (e) => {
   e.preventDefault();
 
+
+
+
+
+
+  
+
     listOfItems.map((val) => {
       if (val.menuID == menuID) {
         // setitemName(val.itemName);
@@ -124,7 +131,7 @@ const calculateTotal = (e) => {
         
       }
       else{
-        alert("No Item excist !!");
+        // alert("No Item excist !!");
       }
     });
 
