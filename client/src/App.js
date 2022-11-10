@@ -13,6 +13,9 @@ import GetMenuDinnerItem from "./pages/GetMenuDinnerItem";
 import PlaceOrder from "./pages/Customor/PlaceOrder";
 import CustomorRegister from "./pages/Customor/CustomorRegister";
 import Navbar from './pages/Navbar';
+import LoginSelect from './pages/LoginSelect'; 
+import LoginCustomer from './pages/LoginCustomer'; 
+import LoginUser from './pages/LoginUser'; 
 
 function App() {
  
@@ -47,6 +50,10 @@ return (
       <Route path="/GetMenuDinnerItem" exact element={<GetMenuDinnerItem/>} />
       <Route path="/PlaceOrder" exact element={<PlaceOrder/>} />
       <Route path="/CustomorRegister" exact element={<CustomorRegister/>} />
+      <Route path="/LoginSelect" exact element={<LoginSelect/>} />
+      <Route path="/LoginCustomer" exact element={<LoginCustomer/>} />
+      <Route path="/LoginUser" exact element={<LoginUser/>} />
+      
     </Routes>
   </Router>
  </div> 
