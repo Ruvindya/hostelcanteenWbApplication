@@ -13,6 +13,8 @@ function LoginCustomer() {
     const [cusName, setcusName] = useState("");
     const [phoneNo, setphoneNo] = useState("");
     const [loginStatus,setLoginStatus] = useState('ENTER YOUR CREDENTIALS');
+    
+   //const cusName=cusName;
     const[listOfcustomer, setListOfCustomer] = useState([]);
 
     useEffect(()=>{
@@ -21,6 +23,16 @@ function LoginCustomer() {
         setListOfCustomer(response.data);
       })
   },[]);
+
+  const Login = async (e) => {
+    e.preventDefault();
+    try {
+      navigate("/CustomerMain");    
+                  
+    } catch (error) {
+   console.log(error);
+    }
+}
 
 
     const CustomerLogin =  async (e)=>{
@@ -41,7 +53,8 @@ function LoginCustomer() {
             }
             else{
              // setLoginStatus(response.data[0].email);
-              navigate("/studentDashboard" ,{ state: {cusID : cusID }} );
+              //navigate("/studentDashboard" ,{ state: {cusID : cusID }} );
+             
             }
   
           })
@@ -62,8 +75,8 @@ function LoginCustomer() {
 
     return (
    
-    
-        <form  className="login" onSubmit={CustomerLogin} >      
+      //
+        <form  className="login"  onSubmit={CustomerLogin}>      
             <div className="loginCustomer" >
               <h1>Login as Customer</h1>
       
@@ -76,7 +89,7 @@ function LoginCustomer() {
                 value={phoneNo} onChange={(e) => setphoneNo(e.target.value)}
                 />
       
-              <button   type="submit"   >Login</button>
+              <button   type="submit"  onClick={Login} >Login</button>
             </div>
       
              <h6>{loginStatus}</h6>

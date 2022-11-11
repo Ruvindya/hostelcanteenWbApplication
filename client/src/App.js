@@ -12,6 +12,7 @@ import GetMenuLunchItem from "./pages/GetMenuLunchItem";
 import GetMenuDinnerItem from "./pages/GetMenuDinnerItem";
 import PlaceOrder from "./pages/Customor/PlaceOrder";
 import CustomorRegister from "./pages/Customor/CustomorRegister";
+import CustomerMain from "./pages/Customor/CustomerMain";
 import Navbar from './pages/Navbar';
 import LoginSelect from './pages/LoginSelect'; 
 import LoginCustomer from './pages/LoginCustomer'; 
@@ -53,6 +54,8 @@ return (
       <Route path="/LoginSelect" exact element={<LoginSelect/>} />
       <Route path="/LoginCustomer" exact element={<LoginCustomer/>} />
       <Route path="/LoginUser" exact element={<LoginUser/>} />
+      <Route path="/CustomerMain" exact element={<CustomerMain/>} />
+      
       
     </Routes>
   </Router>
