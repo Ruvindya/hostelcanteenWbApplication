@@ -28,6 +28,7 @@ function LoginCustomer() {
     e.preventDefault();
     try {
       navigate("/CustomerMain");    
+    
                   
     } catch (error) {
    console.log(error);
