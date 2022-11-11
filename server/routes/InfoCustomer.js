@@ -10,6 +10,7 @@ router.get("/getcustomer", async (req, res) => {
     res.json(listOfcustomer);
 });
 
+
 router.get("/getcustomerbyid/:cusId", async (req, res) => {
     const cusId = req.params.cusId;
     const getCustomer = await customer.findAll( {
@@ -18,9 +19,17 @@ router.get("/getcustomerbyid/:cusId", async (req, res) => {
         }
       });
     res.json(getCustomer);
-    
 
- 
+});
+
+router.get("/getcustomerbyphoneNo/:phoneNo", async (req, res) => {
+    const phoneNo = req.params.phoneNo;
+    const getCustomer = await customer.findAll( {
+        where: {
+            phoneNo:phoneNo
+        }
+      });
+    res.json(getCustomer);
 });
 
 

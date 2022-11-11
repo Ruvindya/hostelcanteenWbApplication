@@ -9,7 +9,6 @@ function LoginUser() {
 
     return (
    
-    
         <form  className="login" >      
             <div className="loginCustomer" >
               <h1>Login as Owner</h1>
