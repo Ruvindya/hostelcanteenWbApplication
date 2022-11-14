@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from "../logo2.png"
 import { useNavigate} from "react-router-dom";
+
 // import axios from "axios";
 // import {useEffect, useState} from "react";
 //import { useNavigate} from "react-router-dom";
@@ -8,10 +9,11 @@ import '../App.css';
 
 function Home(){
   const navigate = useNavigate();
+
   const PlaceOrder = async (e) => {
     e.preventDefault();
     try {
-      navigate("/CustomorRegister");    
+      navigate("/PlaceOrder");    
     
                   
     } catch (error) {
