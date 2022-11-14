@@ -23,14 +23,7 @@ return (
                   
   <Router>
     <Navbar/>
-    {/* <Link to = "/HomePage"> Go to home  | </Link>
-    <Link to = "/NewUser"> New User   | </Link>
-    <Link to = "/Loggin"> login   |</Link>
-    <Link to = "/DeleteUser"> Delete User   | </Link>
-    <Link to = "/AddMenuItem"> Add Menu Item  |</Link>
-    <Link to = "/UpdateMenu"> Update Menue    |</Link>
-    <Link to = "/GetMenuItem"> Get Manu Item    |</Link>
-    <Link to = "/PlaceOrder"> Place a Order</Link> */}
+   
     
     <Routes>
       <Route path="/" exact element={<Home/>} />
