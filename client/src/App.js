@@ -18,10 +18,11 @@ import LoginUser from './pages/LoginUser';
 function App() {
  
 return (  
-
+ 
  <div className='App' > 
-                
+                  
   <Router>
+    <Navbar/>
     {/* <Link to = "/HomePage"> Go to home  | </Link>
     <Link to = "/NewUser"> New User   | </Link>
     <Link to = "/Loggin"> login   |</Link>
