@@ -13,7 +13,7 @@ function Home(){
   const PlaceOrder = async (e) => {
     e.preventDefault();
     try {
-      navigate("/PlaceOrder");    
+      navigate("/CustomorRegister");    
     
                   
     } catch (error) {

@@ -11,9 +11,11 @@ import GetMenuBreakFastItem from "./pages/GetMenuBreakFastItem";
 import GetMenuLunchItem from "./pages/GetMenuLunchItem";
 import GetMenuDinnerItem from "./pages/GetMenuDinnerItem";
 import PlaceOrder from "./pages/Customor/PlaceOrder";
+// import PlaceOrderUsingHome from "./pages/Customor/PlaceOrderUsingHome";
 import Navbar from './pages/Navbar';
 import LoginSelect from './pages/LoginSelect'; 
 import LoginUser from './pages/LoginUser'; 
+import CustomorRegister from './pages/Customor/CustomorRegister';
 
 function App() {
  
@@ -36,8 +38,10 @@ return (
       <Route path="/GetMenuLunchItem" exact element={<GetMenuLunchItem/>} />
       <Route path="/GetMenuDinnerItem" exact element={<GetMenuDinnerItem/>} />
       <Route path="/PlaceOrder" exact element={<PlaceOrder/>} />
+      {/* <Route path='PlaceOrderUsingHome' exact element={<PlaceOrderUsingHome/>} /> */}
       <Route path="/LoginSelect" exact element={<LoginSelect/>} />
       <Route path="/LoginUser" exact element={<LoginUser/>} />
+      <Route path="/CustomorRegister" exact element={<CustomorRegister/>} />
       
     </Routes>
   </Router>
