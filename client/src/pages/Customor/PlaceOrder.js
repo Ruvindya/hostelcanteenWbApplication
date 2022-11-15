@@ -55,22 +55,27 @@ function PlaceOrder() {
    //totAmount have to calculate
 
 
-//   const ConfirmOrder = async (e) => {
-//     e.preventDefault();
+  const ConfirmOrder = async (e) => {
+    e.preventDefault();
+
+
   
 
-//     try {
-//         await axios.post('http://localhost:3001/InfoCustomer/postcustomer', {  
-//           cusName:cusName,
-//             block: block,
-//             roomNo:roomNo,
-//             phoneNo: phoneNo,
-//         })
+    try {
+        await axios.post('http://localhost:3001/InfoOrderDetail/postOderDetails', {  
+          
+        menuID:menuID,
+        qty:qty,
+        totPrice:totPrice,
+        cusId:cusId,
+
+
+        })
         
-//     } catch (error) {
-//    console.log(error);
-//     }
-// }
+    } catch (error) {
+   console.log(error);
+    }
+}
 
 
 
@@ -109,12 +114,6 @@ const calculateTotal = (e) => {
   e.preventDefault();
 
 
-
-
-
-
-  
-
     listOfItems.map((val) => {
       if (val.menuID == menuID) {
         // setitemName(val.itemName);
@@ -124,6 +123,10 @@ const calculateTotal = (e) => {
           setTotPrice("Rs. " +(qty * val.price) + ".00 /=");
           //finalPrice = finalPrice + (qty * val.price);
           //console.log(finalPrice);
+         
+           {ConfirmOrder(e)};
+
+
         }
         else{
           alert("Item is not available Today !!");
@@ -143,17 +146,7 @@ const addItem = async (e) => {
   
     console.log("OKkk");
     try {
-      // await axios.post("http://localhost:3001/InfoCustomer/postcustomer", {  
-        
-      //       cusName:cusName,
-      //       block: block,
-      //       roomNo:roomNo,
-      //       phoneNo:phoneNo,
 
-      //   })
-
-
-      
         await axios.post("http://localhost:3001/InfoOrderDetail/postOderDetails", {  
             orderId:cusId,
             menuID: menuID,
@@ -207,8 +200,8 @@ const addItem = async (e) => {
 
                  
                 
-                  <button   type="submit"  >Select Item</button>
-                  {/* <button   type="submit" onSubmit={ConfirmOrder} >ConfirmOrder</button> */}
+                  {/* <button   type="submit"  >Select Item</button> */}
+                  <button   type="submit"  >ConfirmOrder</button>
 
     </div>
 

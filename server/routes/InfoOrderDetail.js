@@ -3,9 +3,20 @@ const router = express.Router();
 const {orderDetails} = require('../models');
 //
 router.post("/postOderDetails", async (req, res) => {
-    const foodItems = req.body; 
-    await menu.create(foodItems);
-    res.json(foodItems);
+    const {
+      menuID:menuID,
+      qty:qty,
+      totPrice:totPrice,
+      orderId:cusId,
+    } = req.body; 
+
+    const newOderDetails = await orderDetails.create({
+      menuID:menuID,
+      qty:qty,
+      totPrice:totPrice,
+      orderId:cusId,
+    });
+    res.json(newOderDetails);
 });
 
 
