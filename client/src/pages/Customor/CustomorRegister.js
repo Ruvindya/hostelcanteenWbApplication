@@ -15,8 +15,6 @@ const CustomorRegister = () => {
 
     const navigate = useNavigate();
 
-    
-
 const addCustomor = async (e) => {
     
     e.preventDefault();
@@ -64,12 +62,12 @@ const addCustomor = async (e) => {
                 />
 
               <label>roomNo</label>
-                <input type="text" placeholder="Ex:012" name="roomNo" required
+                <input type="text" placeholder="012" name="roomNo" required
                 value={roomNo} onChange={(e) => setRoomNo(e.target.value)}
                 />
 
               <label>phoneNo</label>
-                <input type="text" placeholder="EX:0771234567" name="phoneNo" required
+                <input type="text" placeholder="0771234567" name="phoneNo" required
                 value={phoneNo} onChange={(e) => setPhoneNo(e.target.value)}
                 />
 

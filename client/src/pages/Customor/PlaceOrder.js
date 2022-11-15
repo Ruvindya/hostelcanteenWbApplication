@@ -10,13 +10,13 @@ function PlaceOrder() {
   const cusId= location.state.cusId;
   console.log(cusId);
 
-   //get Breakfast menue Items
+   
    const BLD ='B';
 
   const [listOfItems, setListOfItems] = useState([]);
   const [customer, setCustomer] = useState([]);
 
-
+//set table values with Breakfast items
     useEffect(() => {
       axios.get(`http://localhost:3001/InfoMenu/bybld/${BLD}`).then((response) => {
         
@@ -24,7 +24,7 @@ function PlaceOrder() {
         console.log(response)
   
       });
-
+//get customer details
       axios.get(`http://localhost:3001/InfoCustomer/getcustomerbyid/${cusId}`).then((response) => {
 
         setCustomer(response.data)
@@ -40,8 +40,10 @@ function PlaceOrder() {
     //orderDetails table attributes
     const [menuID, setMenuID] = useState(); //order
     const [qty, setQty] = useState();
-    var [totPrice, setTotPrice] = useState("Rs.0.00 /=");
-    // const [BLD, setBLD] = useState();
+    var [totPrice, setTotPrice] = useState();
+    var [CalPrice, setCalPrice] = useState("Rs.0.00/=");
+
+    var [totAmount, settotAmount] = useState();
     
     const [itemName, setitemName] = useState();
     const [price, setprice] = useState();
@@ -54,12 +56,10 @@ function PlaceOrder() {
    //BLD for order table
    //totAmount have to calculate
 
+   var CalPrice =0;
 
   const ConfirmOrder = async (e) => {
     e.preventDefault();
-
-
-  
 
     try {
         await axios.post('http://localhost:3001/InfoOrderDetail/postOderDetails', {  
@@ -68,43 +68,17 @@ function PlaceOrder() {
         qty:qty,
         totPrice:totPrice,
         cusId:cusId,
+        })
 
-
+        await axios.post('http://localhost:3001/Infocustomerbill/postOder', {  
+          BLD:BLD,
+          totAmount:totAmount,
         })
         
     } catch (error) {
    console.log(error);
     }
 }
-
-
-
-// const showMenu = async (e) => {
-//   e.preventDefault();
-
-
-//   try {
-//       await axios.post('http://localhost:3001/InfoMenu/${B}', {  
-//         cusName:cusName,
-//           block: block,
-//           roomNo:roomNo,
-//           phoneNo: phoneNo,
-          
-
-//       })
-      
-//   } catch (error) {
-//  console.log(error);
-//   }  
-// }
-  
-// useEffect(() => {
-//   axios.get(`http://localhost:3001/InfoCustomer/getcustomer/${cusId}`).then((response) => {
-//     console.log(response.data);
-//     setListOfCustomer(response.data);
-//   });
-// }, []);
-//
 
 
 
@@ -118,9 +92,12 @@ const calculateTotal = (e) => {
       if (val.menuID == menuID) {
         // setitemName(val.itemName);
         if(val.isAvailabe === "true"){
+          CalPrice= val.price * qty;
+          setTotPrice(CalPrice);
+          settotAmount(CalPrice);
 
           //methani oder item eke tot eka calclate karanava
-          setTotPrice("Rs. " +(qty * val.price) + ".00 /=");
+          setCalPrice("Rs. " + CalPrice + ".00 /=");
           //finalPrice = finalPrice + (qty * val.price);
           //console.log(finalPrice);
          
@@ -141,26 +118,23 @@ const calculateTotal = (e) => {
 console.log("else eken eliyata awaa.."+totPrice);
 }
 
-const addItem = async (e) => {
+//create this for when add multi items to order
 
-  
-    console.log("OKkk");
-    try {
+// const addItem = async (e) => {
+//     console.log("OKkk");
+//     try {
+//         await axios.post("http://localhost:3001/InfoOrderDetail/postOderDetails", {  
+//             orderId:cusId,
+//             menuID: menuID,
+//             qty:qty,
+//             totPrice:totPrice,
+//         })        
+//     } catch (error) {
+//    console.log(error);
+//     }
+// }
 
-        await axios.post("http://localhost:3001/InfoOrderDetail/postOderDetails", {  
-            orderId:cusId,
-            menuID: menuID,
-            qty:qty,
-            totPrice:totPrice,
-        })
 
-
-        
-    } catch (error) {
-   console.log(error);
-    }
-     
-}
 
   return (
    
@@ -184,9 +158,10 @@ const addItem = async (e) => {
                   <select name="menuID" id="menuID" onChange={(e) => setMenuID(e.target.value)}>
                     <option value="" >Select Item</option>
                     <option value='1' >Rice</option>
-                    <option value='2' >String Hoppers</option>
-                    <option value='3' >Kottu</option>
-                    <option value='4' >Parotta</option>                
+                    <option value='2' >Parata</option>
+                    <option value='3' >String Hoppers</option>
+                    <option value='4' >Noodels</option>
+                                
                   </select>
 
                   <label>Quantity</label>

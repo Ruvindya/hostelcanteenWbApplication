@@ -1,11 +1,10 @@
-const customer = require("./customer");
-const orderDetails = require("./orderDetails");
+
 
 module.exports = (sequelize,DataTypes) => {
 
 
-   
-        const customerbillSchema = sequelize.define("customerbill" , {   
+    
+        const customerbillSchema = sequelize.define("customerBill" ,{   
     
             billId: {
                 type: DataTypes.INTEGER,

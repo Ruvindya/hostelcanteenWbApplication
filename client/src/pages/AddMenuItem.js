@@ -10,6 +10,7 @@ function AddMenuItem() {
     const [itemName, setItemName] = useState('');
     const [price, setPrice] = useState('');
     const [isAvailabe, setAvailability] = useState('');
+    const [select, setSelect] = useState('select');
 
   const AddItem = async (e) => {
     e.preventDefault();
@@ -22,6 +23,14 @@ function AddMenuItem() {
             price:price,
             isAvailabe: isAvailabe,
         })
+
+        setBLD(' ');
+        setItemName('');
+        setPrice('');
+        setAvailability(' ');
+        setSelect('select');
+
+      
         
     } catch (error) {
    console.log(error);
@@ -35,10 +44,19 @@ function AddMenuItem() {
 
         <h1>Add Food Item to the Menu</h1>
 
-        <label>BLD</label>
+        {/* <label>BLD</label>
           <input type="BLD" placeholder="Ex:B" name="BLD" required  
           value={BLD}  onChange={(e) => setBLD(e.target.value)} 
-          />
+          /> */}
+          <label> BLD </label>
+                  <select name="BLD" id="BLD" onChange={(e) => setBLD(e.target.value)}>
+                    <option value=' ' >Select Item</option>
+                    <option value='B' >Breakfast</option>
+                    <option value='L' >Lunch</option>
+                    <option value='D' >Dinner</option>
+                               
+                  </select>
+
 
         <label>Item Name</label>
           <input type="itemName" placeholder="Ex:FoodName" name="itemName" required
@@ -50,10 +68,18 @@ function AddMenuItem() {
           value={price} onChange={(e) => setPrice(e.target.value)}
           />
 
-        <label>Availability</label>
+        {/* <label>Availability</label>
           <input type="isAvailabe" placeholder="false" name="isAvailabe" required
           value={isAvailabe} onChange={(e) => setAvailability(e.target.value)}
-          />
+          /> */}
+          <label> Availability </label>
+                  <select name="Availability" id="Availability" defaultValue={select} onChange={(e) => setAvailability(e.target.value)}>
+                    <option value=' ' >Select Item</option>
+                    <option value='true' >True</option>
+                    <option value='false' >False</option>
+                    
+                               
+                  </select>
 
         <button   type="AddItem" >AddItem</button>
       </div>

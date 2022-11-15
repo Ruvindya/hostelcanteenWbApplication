@@ -14,10 +14,10 @@ module.exports = (sequelize,DataTypes) => {
                 type: DataTypes.INTEGER,
                 allowNull: false,
                 
-                // references: {
-                //     model: 'customer', // 'fathers' refers to table name
-                //     key: 'cusId', // 'id' refers to column name in fathers table
-                //  },
+                references: {
+                    model: 'customer', // 'fathers' refers to table name
+                    key: 'cusId', // 'id' refers to column name in fathers table
+                 },
                 //forign keyk
                 defaultValue:123,
             },

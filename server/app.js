@@ -19,6 +19,9 @@ app.use("/InfoCustomer", InfoCustomerRouter);
 const InfoOrderDetailRouter = require("./routes/InfoOrderDetail");
 app.use("/InfoOrderDetail", InfoOrderDetailRouter);
 
+const InfocustomerbillRouter = require("./routes/Infocustomerbill");
+app.use("/Infocustomerbill", InfocustomerbillRouter);
+
 db.sequelize.sync().then(() => {
     app.listen(3001, () => {
         console.log("Server has started on port 3001");

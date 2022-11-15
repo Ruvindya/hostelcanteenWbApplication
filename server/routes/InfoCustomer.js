@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const {customer} = require('../models');
 
-//
+//methana meka hadanna thiyanava
 
 router.get("/getcustomer", async (req, res) => {
 

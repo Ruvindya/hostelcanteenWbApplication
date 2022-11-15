@@ -1,65 +1,65 @@
-const customer = require("./customer");
-const orderDetails = require("./orderDetails");
+// const customer = require("./customer");
+// const orderDetails = require("./orderDetails");
 
-module.exports = (sequelize,DataTypes) => {
+// module.exports = (sequelize,DataTypes) => {
 
 
-    //Postschemadf
-        const OderSchema = sequelize.define("Order" , {   
-    //
-            oderNo: {
-                type: DataTypes.INTEGER,
-                allowNull: false,
-                primaryKey: true,
-                autoIncrement: true,
+//     //Postschemadf
+//         const OderSchema = sequelize.define("Order" , {   
+//     //
+//             oderNo: {
+//                 type: DataTypes.INTEGER,
+//                 allowNull: false,
+//                 primaryKey: true,
+//                 autoIncrement: true,
                 
-            },
-            BLD: {
-                type: DataTypes.STRING,
-                allowNull: false,
-                defaultValue:"B",
-            },
+//             },
+//             BLD: {
+//                 type: DataTypes.STRING,
+//                 allowNull: false,
+//                 defaultValue:"B",
+//             },
 
-            // cusId: {
-            //     type: DataTypes.INTEGER,
-            //     references: {
-            //        model: 'customer', // 'fathers' refers to table name
-            //        key: 'cusId', // 'id' refers to column name in fathers table
-            //     }},
-            // cusId: {
-            //     type: DataTypes.INTEGER,
-            //     allowNull: false,
-            //     //foreign key
-            //     defaultValue:"123",
-            // },
+//             // cusId: {
+//             //     type: DataTypes.INTEGER,
+//             //     references: {
+//             //        model: 'customer', // 'fathers' refers to table name
+//             //        key: 'cusId', // 'id' refers to column name in fathers table
+//             //     }},
+//             // cusId: {
+//             //     type: DataTypes.INTEGER,
+//             //     allowNull: false,
+//             //     //foreign key
+//             //     defaultValue:"123",
+//             // },
            
-            totAmount: {
-                type: DataTypes.DOUBLE,
-                allowNull: false,
-                defaultValue:"50.0",
-            },
+//             totAmount: {
+//                 type: DataTypes.DOUBLE,
+//                 allowNull: false,
+//                 defaultValue:"50.0",
+//             },
 
     
-        },{
-            freezeTableName: true,
-            timestamps: false,
+//         },{
+//             freezeTableName: true,
+//             timestamps: false,
             
             
-        });
+//         });
 
 
-        // customer.hasMany(order, {
-        //     foreignKey: 'cusId'
-        //   });
+//         // customer.hasMany(order, {
+//         //     foreignKey: 'cusId'
+//         //   });
           
 
 
-        // OderSchema.associate = (models) => {
-        //     OderSchema.hasMany(models.OderDetailsSchema, {
-        //         onDelete: "cascade,"
-        //     })
-        // };
-        // Oder.belongsTo(customer);
+//         // OderSchema.associate = (models) => {
+//         //     OderSchema.hasMany(models.OderDetailsSchema, {
+//         //         onDelete: "cascade,"
+//         //     })
+//         // };
+//         // Oder.belongsTo(customer);
 
-        return OderSchema;
-     };
+//         return OderSchema;
+//      };
