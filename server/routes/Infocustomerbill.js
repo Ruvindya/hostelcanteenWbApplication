@@ -18,22 +18,22 @@ router.post("/postOder", async (req, res) => {
 });
 
 
-// router.get("/getOrder", async (req, res) => {
-//     //res.send("hello world");
-//     const listOfOrder= await customerBill.findAll();
-//     res.json(listOfOrder);
-// });
+router.get("/getOrder", async (req, res) => {
+    //res.send("hello world");
+    const listOfOrder= await customerBill.findAll();
+    res.json(listOfOrder);
+});
 
 
-// router.get("/getOrderbyOderNo/:oderNo", async (req, res) => {
-//     //res.send("hello world");
-//     const oderNo = req.params.oderNo;
-//     const listOfOrder = await customerBill.findAll( {
-//       where: {
-//         oderNo:oderNo
-//       }
-//     });
-//     res.json(listOfOrder);
-//   });
+router.get("/getOrderbyOderNo/:oderNo", async (req, res) => {
+    //res.send("hello world");
+    const oderNo = req.params.oderNo;
+    const listOfOrder = await customerBill.findAll( {
+      where: {
+        oderNo:oderNo
+      }
+    });
+    res.json(listOfOrder);
+  });
 
   module.exports = router
