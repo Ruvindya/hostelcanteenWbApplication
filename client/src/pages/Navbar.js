@@ -1,9 +1,13 @@
 import React from "react"
 import '../App.css';
 import logo from "../logo2.png"
-
+import {useEffect, useState} from "react";
 
 const Navbar = () => {
+
+  const [status, setstatus] = useState();
+  
+
   return (
     <div><nav className="navbar navbar-expand-lg navbar-light bg-dark">
       <div className='container'>
@@ -34,13 +38,11 @@ const Navbar = () => {
         </li>
 
 
-        <li className="nav-item">
-          <a className="nav-link" href="/LoginSelect">Login</a>
-        </li>
-
+        
+{/* 
         <li className="nav-item">
           <a className="nav-link" href="/CustomorRegister">Place Order</a>
-        </li>
+        </li> */}
 
 
         <li className="nav-item dropdown">
@@ -66,10 +68,19 @@ const Navbar = () => {
             <a className="dropdown-item" href="/GetMenuBreakFastItem">Get Breakfast Menu</a>
             <a className="dropdown-item" href="/GetMenuLunchItem">Get Lunch Menu</a>
             <a className="dropdown-item" href="/GetMenuDinnerItem">Get Dinner Menu</a>
-            <a className="dropdown-item" href="/UpdateMenu">Update Menu</a>
+            {/* <a className="dropdown-item" href="/UpdateMenu">Update Menu</a> */}
             <a className="dropdown-item" href="/AddMenuItem">Add Menu Item</a>
-
+            <a className="dropdown-item" href="/GetOrderReport">Get Order Report</a>
+            
           </div>
+        </li>
+
+        <li className="nav-item">
+          <a className="nav-link" href="/LoginUser">Login</a>
+        </li>
+
+        <li className="nav-item">
+          <a className="nav-link" ><h3>status</h3></a>
         </li>
 
 

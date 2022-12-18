@@ -51,7 +51,11 @@ function UpdateMenu() {
     } catch (error) {
    console.log(error);
     }
-     
+     setBLD('');
+      setItemName('');
+      setPrice('');
+      setAvailability('');
+      
 }
 
   return (

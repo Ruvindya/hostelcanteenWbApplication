@@ -11,7 +11,7 @@ const CustomorRegister = () => {
     const [block, setBlock] = useState('');
     const [roomNo, setRoomNo] = useState();
     const [phoneNo, setPhoneNo] = useState();
-
+    const [cusId, setcusId] = useState(0);
 
     const navigate = useNavigate();
 
@@ -31,6 +31,7 @@ const addCustomor = async (e) => {
            // console.log(response.data.cusId);
             const cusId = response.data.cusId;   
           //  console.log(cusId);
+            // navigate("/SelectMeal");
             navigate("/PlaceOrder", { state: { cusId:response.data.cusId } });
         });
         

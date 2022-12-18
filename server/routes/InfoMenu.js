@@ -2,27 +2,14 @@ const express = require("express");
 const router = express.Router();
 const {menu} = require('../models');
 
-//working all items
+//for select all the menu Items
 router.get("/getItem", async (req, res) => {
     //res.send("hello world");
     const listOfMenuItems = await menu.findAll();
     res.json(listOfMenuItems);
 });
 
-
-//working    
-router.get("/byid/:menuID", async (req, res) => {
-  //res.send("hello world");
-  const menuID= req.params.menuID;
-  const listOfMenuItems = await menu.findAll( {
-    where: {
-      menuID:menuID
-    }
-  });
-  res.json(listOfMenuItems);
-});
-
-//working    
+//for select menu Item by BLD  
 router.get("/bybld/:BLD", async (req, res) => {
   //res.send("hello world");
   const BLD= req.params.BLD;
@@ -34,22 +21,32 @@ router.get("/bybld/:BLD", async (req, res) => {
   res.json(listOfMenuItems);
 });
 
-
+//For Insert New menu Item
 router.post("/postItem", async (req, res) => {
     const foodItems = req.body; 
     await menu.create(foodItems);
     res.json(foodItems);
 });
 
-//working with postman
+//For update menu Item
 router.put("/UpdateItem/:menuID", async (req, res, next)=> {
   const {menuID} = req.params; 
   const event = await menu.findByPk(menuID)
   const updateEvent = await  event.update(req.body )
-  //await menu.fi
-  
   res.json(updateEvent) 
  })
+
+ //for select menu Item by menuId
+router.get("/byid/:menuID", async (req, res) => {
+  //res.send("hello world");
+  const menuID= req.params.menuID;
+  const listOfMenuItems = await menu.findAll( {
+    where: {
+      menuID:menuID
+    }
+  });
+  res.json(listOfMenuItems);
+});
 
 //  $set:{BLD: req.body.BLD,
 //   itemName:req.body.itemName,

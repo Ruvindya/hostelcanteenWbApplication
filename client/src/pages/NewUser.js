@@ -6,10 +6,10 @@ import "../App.css";
 function NewUser() {
 
 
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [userName, setUserName] = useState("");
-    const [password, setPassword] = useState("");
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [userName, setUserName] = useState('');
+    const [password, setPassword] = useState('');
 
 //
   const Register = async (e) => {
@@ -28,10 +28,11 @@ function NewUser() {
     } catch (error) {
    console.log(error);
     }
-    //  [name, setName] = useState(" ");
-    //  [email, setEmail] = useState(" ");
-    //  [userName, setUserName] = useState(" ");
-    //  [password, setPassword] = useState(" ");
+   setName('');
+    setEmail('');
+    setUserName('');
+    setPassword('');
+
 }
   
 
@@ -46,22 +47,22 @@ function NewUser() {
         
 
         <label>Name</label>
-          <input type="name" placeholder="Ex:Name" name="name" required  
+          <input type="text" placeholder="Ex:Name" name="name" required  
           value={name}  onChange={(e) => setName(e.target.value)} 
           />
 
         <label>E-mail</label>
-          <input type="email" placeholder="Ex:name@abc.x" name="email" required
+          <input type="text" placeholder="Ex:name@abc.x" name="email" required
           value={email} onChange={(e) => setEmail(e.target.value)}
           />
 
         <label>UserName</label>
-          <input type="userName" placeholder="Ex:username" name="userName" required
+          <input type="text" placeholder="Ex:username" name="userName" required
           value={userName} onChange={(e) => setUserName(e.target.value)}
           />
 
         <label>Password</label>
-          <input type="Password" placeholder="Ex:abc123" name="password" required
+          <input type="password" placeholder="Ex:abc123" name="password" required
           value={password} onChange={(e) => setPassword(e.target.value)}
           />
 

@@ -2,8 +2,6 @@
 
 module.exports = (sequelize,DataTypes) => {
 
-
-    
         const customerbillSchema = sequelize.define("customerBill" ,{   
     
             billId: {
@@ -11,6 +9,10 @@ module.exports = (sequelize,DataTypes) => {
                 allowNull: false,
                 primaryKey: true,
                 autoIncrement: true,
+                references: {
+                    model: 'customer', // 'fathers' refers to table name
+                    key: 'cusId', // 'id' refers to column name in fathers table
+                 },
                 
             },
             BLD: {

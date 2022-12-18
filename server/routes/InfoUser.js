@@ -2,29 +2,24 @@ const express = require("express");
 const router = express.Router();
 const {user} = require('../models');
 
-
-//working
+//for select all users
 router.get("/getUser", async (req, res) => {
-    //res.send("hello world");
+    
     const listOfUsers = await user.findAll();
     res.json(listOfUsers);
 });
-
-//working
+//for insert a new user
 router.post("/postUser", async (req, res) => {
     const users = req.body; 
     await user.create(users);
     res.json(users);
-
 });
-
-//working
+//for delete user by userId
 router.delete("/delete/:userId", async (req, res) => {
     const userId = req.params.userId; 
     await user.destroy({
         where: { userId: userId },
       });
-
 });
 
 

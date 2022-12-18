@@ -1,25 +1,28 @@
+//  const customer = require("./customer");
+//  const orderDetails = require("./orderDetails");
+ 
 module.exports = (sequelize,DataTypes) => {
-
-
+ 
     //Postschema
         const oderDetailsSchema = sequelize.define("orderDetails" , {   
-    
+     
             oderDetailsId: {
                 type: DataTypes.INTEGER,
                 allowNull: false,
                 primaryKey: true,
                 autoIncrement: true,
             },
+            
             orderId: {
                 type: DataTypes.INTEGER,
                 allowNull: false,
-                
+                defaultValue:1,
                 references: {
                     model: 'customer', // 'fathers' refers to table name
                     key: 'cusId', // 'id' refers to column name in fathers table
                  },
                 //forign keyk
-                defaultValue:123,
+                // defaultValue:123,
             },
             
 
