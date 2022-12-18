@@ -10,7 +10,6 @@ function PlaceOrder() {
   const cusId= location.state.cusId;
   console.log(cusId);
 
-   
    const BLD ='B';
 
   const [listOfItems, setListOfItems] = useState([]);
@@ -40,26 +39,23 @@ function PlaceOrder() {
     //orderDetails table attributes
     const [menuID, setMenuID] = useState(); //order
     const [qty, setQty] = useState();
-    var [totPrice, setTotPrice] = useState();
-    var [CalPrice, setCalPrice] = useState("Rs.0.00/=");
+    const [totPrice, setTotPrice] = useState(0);
+   
+    var [CalPrice, setCalPrice] = useState(0);
+    var [totAmount, settotAmount] = useState(0);
+    const [orderId, setorderId] = useState(cusId);
 
-    var [totAmount, settotAmount] = useState();
-    
-    const [itemName, setitemName] = useState();
-    const [price, setprice] = useState();
-    const [isAvailabe, setisAvailabe] = useState(); 
     
     //final price
     const [finalPrice, setFinalPrice] = useState("Rs.0.00 /=");
 
-
    //BLD for order table
-   //totAmount have to calculate
 
-   var CalPrice =0;
+//CalPrice =0;
 
-  const ConfirmOrder = async (e) => {
+  const AddItem = async (e) => {
     e.preventDefault();
+    
 
     try {
         await axios.post('http://localhost:3001/InfoOrderDetail/postOderDetails', {  
@@ -67,17 +63,29 @@ function PlaceOrder() {
         menuID:menuID,
         qty:qty,
         totPrice:totPrice,
-        cusId:cusId,
-        })
-
-        await axios.post('http://localhost:3001/Infocustomerbill/postOder', {  
-          BLD:BLD,
-          totAmount:totAmount,
+        orderId:orderId,
         })
         
     } catch (error) {
    console.log(error);
+   setTotPrice(0);
+setQty(0);
     }
+
+}
+
+const ConfirmOrder = async (e) => {
+  e.preventDefault();
+  try {
+      
+      await axios.post('http://localhost:3001/Infocustomerbill/postOder', {  
+        BLD:BLD,
+        totAmount:totAmount,
+      })
+      
+  } catch (error) {
+ console.log(error);
+  }
 }
 
 
@@ -92,17 +100,25 @@ const calculateTotal = (e) => {
       if (val.menuID == menuID) {
         // setitemName(val.itemName);
         if(val.isAvailabe === "true"){
-          CalPrice= val.price * qty;
-          setTotPrice(CalPrice);
+          var CalPrice= val.price * qty;
+          // setCalPrice(val.price * qty);
+          console.log("cal price ekaaa"+CalPrice);
+
+          //this tot price didnt calculate value. only take unit ones price
+           
+          console.log("totPrice price ekaaa"+CalPrice);
           settotAmount(CalPrice);
+          console.log("totAmount price ekaaa"+CalPrice);
 
           //methani oder item eke tot eka calclate karanava
-          setCalPrice("Rs. " + CalPrice + ".00 /=");
+          // setCalPrice("Rs. " + CalPrice + ".00 /=");
           //finalPrice = finalPrice + (qty * val.price);
           //console.log(finalPrice);
          
-           {ConfirmOrder(e)};
+          //  {ConfirmOrder(e)};
 
+           {AddItem(e)};
+          
 
         }
         else{
@@ -115,7 +131,8 @@ const calculateTotal = (e) => {
       }
     });
 
-console.log("else eken eliyata awaa.."+totPrice);
+    //this tot Price take the earlier value entered by same customer
+console.log("else eken eliyata awaa.."+ totPrice);
 }
 
 //create this for when add multi items to order
@@ -134,14 +151,11 @@ console.log("else eken eliyata awaa.."+totPrice);
 //     }
 // }
 
-
-
   return (
    
-
   <form  className="PlaceOrderForm" onSubmit={calculateTotal}  >
-     
-      <h1>Place Breakfast Order</h1>
+
+      <h1>Order Yout Breakfast</h1>
     
       <div className='customor-details'>
                     {customer.map((value,key)=>(
@@ -149,10 +163,9 @@ console.log("else eken eliyata awaa.."+totPrice);
                 ))}     
       </div> 
 
-
     <div className="orderDetails" >
       
-                  <h5>Fill order details</h5>
+                  <h5>Place your order</h5>
 
                   <label> Items </label>
                   <select name="menuID" id="menuID" onChange={(e) => setMenuID(e.target.value)}>
@@ -166,22 +179,18 @@ console.log("else eken eliyata awaa.."+totPrice);
 
                   <label>Quantity</label>
                   <input type="number" placeholder="Ex:1" name="qty" required
-                  value={qty} onChange={(e) => setQty(e.target.value)}
+                  value={qty} onChange={(e) => setQty(e.target.value) }
                   />
 
-                  <label>Totel Price </label>
+                  {/* <label>Totel Price </label> */}
                 
                    <td className='columnData-placeorder'> <h3>{totPrice}</h3></td>     
 
                  
                 
-                  {/* <button   type="submit"  >Select Item</button> */}
-                  <button   type="submit"  >ConfirmOrder</button>
+                  <button   type="submit"  >AddItem</button>
+                  <button   type="submit" onClick={ConfirmOrder} >ConfirmOrder</button>
 
-    </div>
-
-    <div className='seeMenu'>
-            <button   type="submit"  >showMenu</button>
     </div>
 
     <div className='MenuItems'>
