@@ -129,7 +129,7 @@ const calculateTotal = (e) => {
       else{
         // alert("No Item excist !!");
       }
-    });
+    });  
 
     //this tot Price take the earlier value entered by same customer
 console.log("else eken eliyata awaa.."+ totPrice);
