@@ -62,7 +62,7 @@ function PlaceOrder() {
           
         menuID:menuID,
         qty:qty,
-        totPrice:totPrice,
+        totPrice:CalPrice,
         orderId:orderId,
         })
         
