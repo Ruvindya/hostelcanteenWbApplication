@@ -62,7 +62,7 @@ function PlaceOrder() {
           
         menuID:menuID,
         qty:qty,
-        totPrice:CalPrice,
+        totPrice:totPrice,
         orderId:orderId,
         })
         
@@ -101,6 +101,7 @@ const calculateTotal = (e) => {
         // setitemName(val.itemName);
         if(val.isAvailabe === "true"){
           var CalPrice= val.price * qty;
+          setTotPrice(CalPrice);
           // setCalPrice(val.price * qty);
           console.log("cal price ekaaa"+CalPrice);
 
@@ -109,6 +110,7 @@ const calculateTotal = (e) => {
           console.log("totPrice price ekaaa"+CalPrice);
           settotAmount(CalPrice);
           console.log("totAmount price ekaaa"+CalPrice);
+          
 
           //methani oder item eke tot eka calclate karanava
           // setCalPrice("Rs. " + CalPrice + ".00 /=");
