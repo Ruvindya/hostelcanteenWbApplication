@@ -20,7 +20,7 @@ function PlaceOrder() {
       axios.get(`http://localhost:3001/InfoMenu/bybld/${BLD}`).then((response) => {
         
         setListOfItems(response.data)
-        console.log(response)
+        console.log(response.data)
   
       });
 //get customer details
@@ -34,15 +34,13 @@ function PlaceOrder() {
     }, []);
 
 
-
-
     //orderDetails table attributes
     const [menuID, setMenuID] = useState(); //order
     const [qty, setQty] = useState();
     const [totPrice, setTotPrice] = useState(0);
    
-    var [CalPrice, setCalPrice] = useState(0);
-    var [totAmount, settotAmount] = useState(0);
+    const [CalPrice, setCalPrice] = useState(0);
+    const [totAmount, settotAmount] = useState(0);
     const [orderId, setorderId] = useState(cusId);
 
     
@@ -98,18 +96,26 @@ const calculateTotal = (e) => {
 
     listOfItems.map((val) => {
       if (val.menuID == menuID) {
-        // setitemName(val.itemName);
-        if(val.isAvailabe === "true"){
-          var CalPrice= val.price * qty;
-          setTotPrice(CalPrice);
-          // setCalPrice(val.price * qty);
-          console.log("cal price ekaaa"+CalPrice);
+     
 
-          //this tot price didnt calculate value. only take unit ones price
+
+        if(val.isAvailabe === "true"){
+
+          console.log("vedi venvada..  "+val.price * qty);
            
-          console.log("totPrice price ekaaa"+CalPrice);
+          const cc= val.price * qty;
+          setCalPrice(cc);
+          console.log("calprice ekaa   "+CalPrice);
+          setTotPrice(val.price * qty);
+         
+          
+          //console.log("cal price ekaaa  "+CalPrice);
+
+          
+           
+         // console.log("totPrice price ekaaa  "+CalPrice);
           settotAmount(CalPrice);
-          console.log("totAmount price ekaaa"+CalPrice);
+         // console.log("totAmount price ekaaa  "+CalPrice);
           
 
           //methani oder item eke tot eka calclate karanava
@@ -134,7 +140,7 @@ const calculateTotal = (e) => {
     });  
 
     //this tot Price take the earlier value entered by same customer
-console.log("else eken eliyata awaa.."+ totPrice);
+//console.log("else eken eliyata awaa..  "+ totPrice);
 }
 
 //create this for when add multi items to order
@@ -220,11 +226,8 @@ console.log("else eken eliyata awaa.."+ totPrice);
         </table>
     </div> 
 
-
     </form>
 
-    
-  
   );
 }
 
