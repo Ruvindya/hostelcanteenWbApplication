@@ -18,7 +18,6 @@ import Cart from './Components/Cart';
 // import GetMenuDinnerItem from "./pages/GetMenuDinnerItem";
 // import PlaceOrder from "./pages/Customor/PlaceOrder";
 // import FoodContainer from "./pages/Customor/FoodContainer";
-
 // import LoginSelect from './pages/LoginSelect'; 
 // import LoginUser from './pages/LoginUser';
 // import CustomorRegister from './pages/Customor/CustomorRegister';
@@ -30,17 +29,20 @@ function App() {
 return (  
  
  
-              
+  <div className='App' >         
   <Router>
     <Navbar/>
    
-    <div className='App' > 
+    <Routes>
     <Route path="/Breakfast" exact element={<Breakfast/>} />
     <Route path="/Lunch" exact element={<Lunch/>} />
     <Route path="/Dinner" exact element={<Dinner/>} />
     <Route path="/Cart" exact element={<Cart/>} />
 
-    </div>
+    </Routes>
+    
+
+   
 
     <Routes>
 
@@ -63,7 +65,7 @@ return (
 
     </Routes>
   </Router>
- 
+  </div>
 
  );
 
