@@ -117,19 +117,19 @@ const Navbar = () => {
 
 
         <li className="nav-item active">
-          <a className="nav-link" href="" >Breakfast </a>
+          <a className="nav-link" href="/Breakfast" >Breakfast </a>
         </li>
 
         <li className="nav-item">
-          <a className="nav-link" href="">Lunch</a>
+          <a className="nav-link" href="/Lunch">Lunch</a>
         </li>
 
         <li className="nav-item">
-          <a className="nav-link" href="">Dinner</a>
+          <a className="nav-link" href="/Dinner">Dinner</a>
         </li>
 
         <li className="nav-item">
-          <a className="nav-link" href="">Cart</a>
+          <a className="nav-link" href="/Cart ">Cart</a>
         </li>
 
       </ul>
