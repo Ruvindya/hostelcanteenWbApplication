@@ -1,7 +1,8 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter as Router, Route, Routes, Link, } from 'react-router-dom';
-import Navbar from './pages/Navbar';
+//import Navbar from './pages/Navbar';
+import Header from './Components/Header';
 import Breakfast from './Components/Breakfast';
 import Lunch from './Components/Lunch';
 import Dinner from './Components/Dinner';
@@ -31,9 +32,10 @@ return (
  
   <div className='App' >         
   <Router>
-    <Navbar/>
+    <Header/>
    
     <Routes>
+
     <Route path="/Breakfast" exact element={<Breakfast/>} />
     <Route path="/Lunch" exact element={<Lunch/>} />
     <Route path="/Dinner" exact element={<Dinner/>} />
@@ -44,7 +46,7 @@ return (
 
    
 
-    <Routes>
+  
 
       {/* <Route path="/" exact element={<Home/>} />
       <Route path="/NewUser" exact element={<NewUser/>} />
@@ -63,7 +65,7 @@ return (
       
       
 
-    </Routes>
+   
   </Router>
   </div>
 
