@@ -30,9 +30,11 @@ function App() {
 return (  
  
  
-  <div className='App' >         
+          
   <Router>
     <Header/>
+    <div className='App' > 
+    
    
     <Routes>
 
@@ -65,9 +67,9 @@ return (
       
       
 
-   
+      </div>
   </Router>
-  </div>
+  
 
  );
 
