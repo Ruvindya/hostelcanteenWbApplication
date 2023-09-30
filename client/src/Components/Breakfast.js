@@ -1,18 +1,25 @@
-import React from 'react';
+import React ,{ useState }  from 'react';
 import { faker } from '@faker-js/faker';
+import SingleProduct from './SingleProduct';
 
 
 const Breakfast = () => {
   const productArray = [...Array(4)].map(()=>({
     id:faker.datatype.uuid(),
     name: faker.commerce.productName(),
-    price: faker.commerce.price(),
-    image: faker.random.image()
+    price:faker.commerce.price(),
+    image: faker.image.food(),
 
   }));
-  console.log(productArray);
+
+  const [products] = useState(productArray);
+
   return (
-    <div>Breakfast</div>
+    <div className='productContainer'>
+      {products.map((prod => ( 
+        <SingleProduct prod={prod} />
+      )))}
+    </div>
   )
 }
 

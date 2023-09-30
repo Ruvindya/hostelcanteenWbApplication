@@ -21,3 +21,24 @@
 .nav > li:hover {
     color: turquoise;
 }
+.productContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.products{
+    flex-direction: column;
+    display: flex;
+    width: 25%;
+    margin: 10px;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.productDesc{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
