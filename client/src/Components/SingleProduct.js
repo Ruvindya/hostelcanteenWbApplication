@@ -1,8 +1,11 @@
-import React from 'react'
+import React , {useContext} from 'react'
 import "./Style.css";
+import { Cart } from '../Context';
 
-const SingleProduct = ({prod, cart, setCart}) => {
-    console.log(cart);
+const SingleProduct = ({prod}) => {
+
+    const {cart,setCart} = useContext(Cart);
+
 
 
   return (
@@ -14,18 +17,17 @@ const SingleProduct = ({prod, cart, setCart}) => {
         </div>
         
         {cart.includes(prod) ? (
-                <button 
-                className='add' 
-                onClick={() => {
-                    setCart(cart.filter((c) => c.id !== prod.id));
-                    
-                }}
-                >
-                    Remove From Cart
-                </button>
-
-        ) : (
-                    <button 
+             <button 
+             className='add' 
+             onClick={() => {
+                 setCart(cart.filter((c) => c.id !== prod.id));
+                 
+             }}
+             >
+                 Remove From Cart
+             </button>
+        ): (
+            <button 
                     className='add' 
                     onClick={() => {
                         setCart([...cart, prod]);
@@ -33,9 +35,9 @@ const SingleProduct = ({prod, cart, setCart}) => {
                     >
                         Add to Cart
                     </button>
-            )}
+        )}
         
-        
+       
     </div>
   )
 }

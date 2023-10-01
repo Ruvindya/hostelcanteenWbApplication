@@ -6,7 +6,7 @@ import Header from './Components/Header';
 import Breakfast from './Components/Breakfast';
 import Lunch from './Components/Lunch';
 import Dinner from './Components/Dinner';
-import Cart from './Components/Cart';
+import CartPage from './Components/Cart';
 import { useState }  from 'react';
 
 
@@ -27,7 +27,7 @@ import { useState }  from 'react';
 
 
 function App() {
-  const [cart,setCart] = useState([]);
+
  
 return (  
  
@@ -40,9 +40,9 @@ return (
    
     <Routes>
 
-    <Route path="/Breakfast" exact element={<Breakfast cart={cart} setCart={setCart}/>} />  
+    <Route path="/Breakfast" exact element={<Breakfast/>} />  
     
-    <Route path="/Cart" exact element={<Cart cart={cart} setCart={setCart}/>} /> 
+    <Route path="/Cart" exact element={<CartPage/>} /> 
 
     <Route path="/Lunch" exact element={<Lunch/>} />
     <Route path="/Dinner" exact element={<Dinner/>} />
