@@ -11,11 +11,16 @@ const CartPage = () => {
   }, [cart]);
 
   return (
-    <div>
+    <div className=''>
+      <div className='cartContainer'>
       <span style={{fontSize: 30}}>My Cart</span>
       <br />
       <span style= {{fontSize: 30}}>Total: Rs.{total}</span>
+
+      </div>
+      
       <div className='productContainer'>
+        
         {cart.map((prod) => (
           <SingleProduct
             prod={prod}

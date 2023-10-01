@@ -12,13 +12,18 @@ const SingleProduct = ({prod}) => {
     <div className='products'>
         <img src={prod.image} alt={prod.name} />
         <div className='productDesc'>
-            <span style={{fontWeight:700}}>{prod.name}</span>
-            <span>Rs.{prod.price.substring(0,3)}</span>
+            <span className='productName' style={{fontWeight:700}}>{prod.name}</span>
+           
         </div>
-        
+
+        <div className='ButtonContainer'>
+            <div className='productPrice'>
+            <span >Rs.{prod.price.substring(0,3)}</span>
+
+            </div>
         {cart.includes(prod) ? (
              <button 
-             className='add' 
+             className='remove' 
              onClick={() => {
                  setCart(cart.filter((c) => c.id !== prod.id));
                  
@@ -36,6 +41,9 @@ const SingleProduct = ({prod}) => {
                         Add to Cart
                     </button>
         )}
+
+        </div>
+       
         
        
     </div>

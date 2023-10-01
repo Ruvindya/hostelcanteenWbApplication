@@ -22,13 +22,20 @@ const Breakfast = ({}) => {
   const [products] = useState(productArray);
 
   return (
-    <div className='productContainer'>
+    <div>
+      <div className='BreakfastContainer'>
+      <span style={{fontSize: 50}}>Set your Breakfast!</span>
+      </div>
+        <div className='productContainer'>
+      
       {products.map((prod => ( 
         <SingleProduct prod={prod}  key={prod.id}/>
         
       )))}
       
     </div>
+    </div>
+    
   )
 }
 

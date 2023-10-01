@@ -3,6 +3,7 @@
     text-align: center;
     font-size: 30px;
     margin: 10px 0;
+    width: 100%;
 }
 .nav {
     display: flex;
@@ -12,10 +13,14 @@
     background-color: black;
     height: 80px;
     margin-top: 0;
+    width: 100%;
 }
 
 .nav > li {
-    color: white;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    list-style: none;
+    
 }
 
 .nav > li:hover {
@@ -26,19 +31,93 @@
     flex-wrap: wrap;
     justify-content: space-around;
     padding: 20px;
+    padding-top: 100px;
+    flex-direction: column;
+    align-items: center;
 }
 
 .products{
-    flex-direction: column;
+    flex-direction: row;
     display: flex;
-    width: 25%;
+    width: 80%;
     margin: 10px;
-    border: 1px solid black;
+    border: 1px solid rgb(121, 117, 117);
     padding: 10px;
+    gap:50px;
+    align-items: center;
+}
+.products:hover{
+    border: 1px solid rgb(89, 116, 148);
+    box-shadow: 0 0 10px rgb(121, 134, 150);
+    
+}
+.products > img {
+    width: 300px;
+    height: 200px;
+}
+.ButtonContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 300px;
+    gap:20px;
+    
+}
+.ButtonContainer > button {
+    width: 200px;
+    height: 50px;
+    align-items:center;
+    justify-content: center;
+    margin-right: 10%;
+    background-color: rgb(203, 208, 214);
+    color: rgb(44, 63, 87);
+    border: 0;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    
 }
 
+.ButtonContainer > button:hover{
+    background-color: rgb(62, 86, 116);
+    color: white;
+    box-shadow: 0 0 5px rgb(78, 80, 82);
+} 
+   
+
+.productPrice{
+    font-size: 25px;
+}
 .productDesc{
     display: flex;
-    justify-content: space-between;
-    padding: 5px;
+    font-size: 25px;
+    padding-top: 10px;
+    padding-right: 5%;;
+    width: 50%;
+    height: 200px;
+}
+
+.BreakfastContainer{
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+    height: 200px;
+    width: 100%;
+    padding: 50px;
+
+}
+.cartContainer{
+    display:flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    align-items:flex-start;
+    height: 200px;
+    width: 100%;
+    padding: 50px;
+    background-color: rgb(240, 241, 243);
+    
 }

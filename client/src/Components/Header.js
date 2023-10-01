@@ -10,13 +10,13 @@ const Header = () => {
         <span className='header'>HostelCanteen</span>
         <ul className='nav'>
             <li >
-                <Link to='/Breakfast'>BreakfastPage</Link>
+                <Link to='/Breakfast'>Breakfast Page</Link>
             </li>
             <li >
-                <Link to='/Lunch'>LunchPage</Link>
+                <Link to='/Lunch'>Lunch Page</Link>
             </li>
             <li >
-                <Link to='/Dinner'>DinnerPage</Link>
+                <Link to='/Dinner'>Dinner Page</Link>
             </li>
             <li >
                 <Link to='/Cart'>cart ({cart.length})
