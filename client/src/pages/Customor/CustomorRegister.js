@@ -32,7 +32,7 @@ const addCustomor = async (e) => {
             const cusId = response.data.cusId;   
           //  console.log(cusId);
             // navigate("/SelectMeal");
-            navigate("/PlaceOrder", { state: { cusId:response.data.cusId } });
+            navigate("/FoodContainer", { state: { cusId:response.data.cusId } });
         });
         
     } catch (error) {
